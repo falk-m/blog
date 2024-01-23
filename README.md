@@ -7,4 +7,11 @@ This blog is my central place now, to collect interesting code snippets, feature
 
 ## Content
 
+### 2023
+
+- 2024-12-09: [url safe encoding](./2023/01-ursafe-encoding/README.md)
+- 2024-01-23: [Mongo Light](./2023/02-mongo-light/README.md)
+
+### 2024
+
 - 2024-01-23: [OWAS Top 10 Presentation](./2024/01-owasp/README.md)

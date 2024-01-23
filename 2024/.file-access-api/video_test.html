@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>video Test</title>
+  </head>
+  <body>
+    <input type="file" id="upload-field" />
+
+    <video id="video"></video>
+
+    <button id="load" >load from storage</button>
+
+    <script>
+      let directoryHandler = null;
+
+      navigator.storage.getDirectory().then((dh) => {
+        directoryHandler = dh;
+        console.log("load", dh);
+      });
+
+      document.getElementById('load').addEventListener('click',async  () => {
+        for await (const [key, value] of directoryHandler.entries()) {
+
+            console.log({ key, value });
+            const file = await value.getFile();
+            const videoElement = document.getElementById("video");
+            const url = URL.createObjectURL(file);
+            videoElement.src = url;
+            videoElement.play();
+            return;
+          }
+      });
+
+      document
+        .getElementById("upload-field")
+        .addEventListener("change", async (e) => {
+          var file = e.currentTarget.files[0];
+          console.log(file);
+
+          const fileHandle = await directoryHandler.getFileHandle(
+            "my first file2",
+            {
+              create: true,
+            }
+          );
+
+          reader = new FileReader();
+
+          reader.onloadend = async (e) => {
+            console.log("buffer", e.target.result);
+            console.log("handle", fileHandle);
+
+            //accessHandle only available in web workers
+            //const accessHandle = await fileHandle.createSyncAccessHandle();
+            //accessHandle.write(e.target.result);
+            //accessHandle.flush();
+            //accessHandle.close();
+
+            // Create a FileSystemWritableFileStream to write to.
+            const writable = await fileHandle.createWritable();
+
+            // Write the contents of the file to the stream.
+            await writable.write(e.target.result);
+
+            // Close the file and write the contents to disk.
+            await writable.close();
+
+            //read file and display them
+            const file = await fileHandle.getFile();
+            const videoElement = document.getElementById("video");
+            const url = URL.createObjectURL(file);
+            videoElement.src = url;
+            videoElement.play();
+          };
+
+          reader.readAsArrayBuffer(file);
+        });
+    </script>
+  </body>
+</html>

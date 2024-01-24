@@ -3,11 +3,21 @@
     <title>video Test</title>
   </head>
   <body>
-    <input type="file" id="upload-field" />
 
-    <video id="video"></video>
+    <div>
+      <video id="video"></video>
+    </div>
+    
+    <div>
+      upload a video to Origin Private File System:<br/>
+      <input type="file" id="upload-field" />
+    </div>
+    
 
-    <button id="load" >load from storage</button>
+    <div>
+      Play video from Origin Private File System:<br/>
+      <button id="load" >load from storage</button>
+    </div>
 
     <script>
       let directoryHandler = null;
@@ -18,9 +28,9 @@
       });
 
       document.getElementById('load').addEventListener('click',async  () => {
-        for await (const [key, value] of directoryHandler.entries()) {
+        for await (const [file_name, value] of directoryHandler.entries()) {
 
-            console.log({ key, value });
+            console.log({ file_name, value });
             const file = await value.getFile();
             const videoElement = document.getElementById("video");
             const url = URL.createObjectURL(file);
@@ -37,7 +47,7 @@
           console.log(file);
 
           const fileHandle = await directoryHandler.getFileHandle(
-            "my first file2",
+            "video_file",
             {
               create: true,
             }

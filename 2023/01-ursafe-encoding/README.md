@@ -1,7 +1,7 @@
 ---
 tags: 
 - php
-date: 2024-12-09
+date: 2023-12-09
 ---
 
 # url safe encoding

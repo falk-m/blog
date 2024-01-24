@@ -9,8 +9,8 @@ This blog is my central place now, to collect interesting code snippets, feature
 
 ### 2023
 
-- 2024-12-09: [URL safe encoding](./2023/01-ursafe-encoding/README.md)
-- 2024-01-23: [Mongo Light](./2023/02-mongo-light/README.md)
+- 2023-12-09: [URL safe encoding](./2023/01-ursafe-encoding/README.md)
+- 2023-12-10: [Mongo Light](./2023/02-mongo-light/README.md)
 
 ### 2024
 

@@ -1,10 +1,10 @@
 ---
-tags: 
-- php
-date: 2023-12-10
+title: 'Mongo Light'
+taxonomy:
+    tag:
+        - PHP
+date: '10-12-2023'
 ---
-
-# Mongo Light
 
 There is a great CRM System [EspoCrm](https://www.espocrm.com/de/).
 In Espo, you can administrate the object types, their properties and their relations in the user interface.

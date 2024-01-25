@@ -1,10 +1,10 @@
 ---
-tags: 
-- js
-date: 2024-01-24
+title: 'store and play video files from the local file system'
+taxonomy:
+    tag:
+        - js
+date: '24-01-2024'
 ---
-
-# store and play video files from the local file system
 
 For one of my next projects, I have to cache large files locally on the device to use them also in offline mode. 
 

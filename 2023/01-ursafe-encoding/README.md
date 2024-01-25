@@ -1,10 +1,10 @@
 ---
-tags: 
-- php
-date: 2023-12-09
+title: 'url safe encoding'
+taxonomy:
+    tag:
+        - PHP
+date: '09-12-2023'
 ---
-
-# url safe encoding
 
 ```
 protected function urlSafeBase64Decode(string $data)

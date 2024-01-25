@@ -1,9 +1,9 @@
 ---
-tags: 
-- js
-- html
-- accessibility
-date: 2024-01-24
+title: 'The div button :-)'
+taxonomy:
+    tag:
+        - js
+date: '24-01-2024'
 ---
 
 # The div button :-)

@@ -17,3 +17,4 @@ This blog is my central place now, to collect interesting code snippets, feature
 - 2024-01-23: [OWAS Top 10 Presentation](./2024/01-owasp/README.md)
 - 2024-01-24: [store and play video files from the local file system](./2024/02-file-access-api/README.md)
 - 2024-01-24: [the div button:-)](./2024/03-div-button/README.md)
+- 2024-01-25: [the div button:-)](./2024/04-smime-mail-encyption/README.md)

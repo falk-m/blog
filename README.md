@@ -18,3 +18,4 @@ This blog is my central place now, to collect interesting code snippets, feature
 - 2024-01-24: [store and play video files from the local file system](./2024/02-file-access-api/README.md)
 - 2024-01-24: [the div button:-)](./2024/03-div-button/README.md)
 - 2024-01-25: [encrypt emails with s/mime on PHP and send with PHPMailer over smtp](./2024/04-smime-mail-encyption/README.md)
+- 2024-01-29: [Extract SMIME certificate from mail](./2024/05-smime-cert-from-eml/README.md)

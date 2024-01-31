@@ -20,3 +20,4 @@ This blog is my central place now, to collect interesting code snippets, feature
 - 2024-01-25: [encrypt emails with s/mime on PHP and send with PHPMailer over smtp](./2024/04-smime-mail-encyption/README.md)
 - 2024-01-29: [Extract SMIME certificate from mail](./2024/05-smime-cert-from-eml/README.md)
 - 2024-01-30: [Rewrite to public folder](./2024/06-htaccess-rewrite-to-public-folder/README.md)
+- 2024-01-31: [Server side event tracking with matomo](./2024/07-matomo-server-side-events/README.md)

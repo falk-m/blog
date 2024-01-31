@@ -26,7 +26,7 @@ For the tracking script, download and include the [matomo php tracker script](ht
 // Required variables
 $matomoSiteId = 1; // Site ID
 $matomoUrl = "http://localhost/matomo"; // Your matomo URL
-$matomoToken = "96c6fe37bb932c52e858a776e6a3bf83"; // Your authentication token
+$matomoToken = "xyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxy"; // Your authentication token
 
 // Optional variable
 $matomoPageTitle = ""; // The title of the page
@@ -46,3 +46,14 @@ $res = $matomoTracker->doTrackPageView($matomoPageTitle);
 //Track custom event
 $matomoTracker->doTrackEvent('APP', 'MAIL', 'SMTP_ERROR');
 ```
+
+The matomo cron (infos under Settings -> Diagnose -> System Check) should be created.
+For testing, you can use the manual call over http
+```[PATH TO MATHOMO]/misc/cron/archive.php?token_auth=xyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxy```
+
+
+You see user evnt Tracking in the history
+![log](./log.png)
+
+And hirachical in the events view:
+![events](./events.png)

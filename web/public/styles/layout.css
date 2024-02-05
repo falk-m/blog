@@ -1,0 +1,15 @@
+.l-container {
+    margin: 0 auto;
+    padding: 1rem;
+    width: min(100%, 780px);
+}
+
+.l-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.l-mb-1 {
+    margin-bottom: 1rem;
+}

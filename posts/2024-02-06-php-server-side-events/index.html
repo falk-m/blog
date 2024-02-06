@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SSE test</title>
+  </head>
+  <body>
+    <h1>SSE test</h1>
+
+    <script>
+      (function () {
+        if (!window.EventSource) {
+          alert("Server-Sent Events not supported");
+          return;
+        }
+
+        const eventSource = new EventSource("server.php");
+
+        eventSource.addEventListener("date", function (event) {
+          console.log(event.data);
+        });
+
+        eventSource.addEventListener("end", function (event) {
+          eventSource.close();
+        });
+
+        eventSource.addEventListener("error", function (event) {
+          if (event.readyState === EventSource.CLOSED) {
+            console.log("Fehler aufgetreten - die Verbindung wurde getrennt.");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

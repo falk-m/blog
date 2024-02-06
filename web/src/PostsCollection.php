@@ -25,7 +25,7 @@ class PostsCollection
 
         $posts = [];
 
-        $listFiles = array_slice($postFiles, $offset, $limit);
+        $listFiles = array_slice(array_reverse($postFiles), $offset, $limit);
 
         foreach ($listFiles as $postFile) {
 

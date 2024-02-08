@@ -4,7 +4,7 @@ taxonomy:
 tag:
   - PHP
   - JS
-date: "2024-01-31"
+date: "2024-02-06"
 ---
 
 There are different ways for near real-time browser updates by a server message.
@@ -78,4 +78,3 @@ eventSource.addEventListener("error", function (event) {
 - https://www.codemag.com/Article/2312051/Introduction-to-Real-Time-Communication-in-PHP-Laravel
 - https://www.codingblatt.de/html5-server-sent-events/
 - https://caniuse.com/?search=EventSource
-```

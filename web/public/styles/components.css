@@ -51,6 +51,26 @@ hr {
   margin-bottom: 0.8rem;
 }
 
+.c-detail-content h2 {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(239, 243, 244);
+}
+
+.c-detail-content h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.c-detail-content img {
+  border: 1px solid rgb(239, 243, 244);
+}
+
 /*pre {
     background-color: #eee;
     font-family: courier, monospace;

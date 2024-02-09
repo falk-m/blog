@@ -25,16 +25,21 @@ The Channel id is the last segment, starting with a 'C'.
 
 ### 3. follow the instructions
 
-Make sure there are the right scopes: chat:write, chat:write.public
+Select the workspace and make sure there are the right scopes: chat:write, chat:write.public
+
+![select a workspace](./select_workspace.png)
 
 ### 4. execute the "Install your app" step
 
+![install workspace](./install_workspace.png)
+
+### 5. go back
 At the end, there is an overlay on top of the page with the headline "Your're all set for now!".
 Press the link "Posting messages using curl" and get back to the page from step 1.
 
 ![page after creating the app](./init_app_finish.png)
 
-### 5. copy token.
+### 6. copy token.
 
 You are back on the "Posting messages using curl".
 The "Create app" is gone.

@@ -26,7 +26,7 @@ $message = [
             "type" => "section",
             "text" => [
                 "type" => "mrkdwn",
-                "text" => "This is a *test-message* from the Jobadvertiser backend"
+                "text" => "This is a *test-message* from a chat bot."
             ]
         ]
     ]
@@ -64,4 +64,4 @@ if (\JSON_ERROR_NONE !== \json_last_error() || !is_array($json)) {
     exit;
 }
 
-echo ($header["ok"] ?? false) ? "SUCCESS" : "ERROR";
+echo ($json["ok"] ?? false) ? "SUCCESS" : "ERROR";

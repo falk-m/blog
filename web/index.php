@@ -15,6 +15,8 @@ if (!trim($app->requestUri, '/')) {
     $action = require_once(__DIR__ . '/pages/media.php');
 } elseif (strpos($app->requestUri, '/identicon') === 0) {
     $action = require_once(__DIR__ . '/pages/identicon.php');
+} elseif (strpos($app->requestUri, '/update') === 0) {
+    $action = require_once(__DIR__ . '/pages/update.php');
 } else {
     $action = require_once(__DIR__ . '/pages/detail.php');
 }

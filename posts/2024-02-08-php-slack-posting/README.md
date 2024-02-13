@@ -83,3 +83,7 @@ curl_setopt_array($ch, [
 $content = curl_exec($ch);
 $header  = curl_getinfo($ch);
 ```
+
+## alternative
+
+Another way to post messages in a channel is [incoming webhooks](https://api.slack.com/messaging/webhooks).

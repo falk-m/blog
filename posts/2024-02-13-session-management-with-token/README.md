@@ -65,4 +65,6 @@ In a simple case, the API sets a session cookie after login:
 
 - use refresh token rotation 
 - never expose tokens in a URL
-- when the login server and resource server are different servers use public-private key encryption to signate and verify the access-token  
+- when the login server and resource server are different servers use public-private key encryption to signate and verify the access-token
+- lock the user (e.g. for 10min) after 3 failed login trials, and inform the user via email
+- API backend: Set 'access-control-allow-origin' header with the frontend domain and the 'Vary: Origin' header.

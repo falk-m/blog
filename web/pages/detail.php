@@ -12,10 +12,9 @@ return function (Blog $app) {
         return;
     }
 
-    $app->templateEngine->registerFunction('format_tags', function (array $tags) {
-
-        return implode('', array_map(function ($tag) {
-            return "<span class='c-tag'>{$tag}</span>";
+    $app->templateEngine->registerFunction('format_tags', function (array $tags) use ($app) {
+        return implode('', array_map(function ($tag) use ($app) {
+            return "<a class='c-tag' href='{$app->baseUrl}?tag={$tag}'>{$tag}</a>";
         }, $tags));
     });
 

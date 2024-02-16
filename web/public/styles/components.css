@@ -1,3 +1,11 @@
+:root {
+  --color-white: #fff;
+  --collor-gray-600: rgb(83, 100, 113);
+  --collor-gray-200: rgb(239, 243, 244);
+  --color-black: #000;
+
+}
+
 .c_h1 {
   font-weight: 600;
   font-size: 2rem;
@@ -22,23 +30,23 @@
   display: inline;
 }
 .c-post__autor {
-  color: rgb(83, 100, 113);
+  color: var(--collor-gray-600);
 }
 .c-post__date {
-  color: rgb(83, 100, 113);
+  color: var(--collor-gray-600);
 }
 .c-post__teaser {
 }
 
 .c-post__link, .c-pagination__link {
-    color: #fff;
-    background-color: #000;
+    color: var(--color-white);
+    background-color: var(--color-black);
     padding: 0.3rem 1rem;
     border-radius: 2rem;
 }
 
 hr {
-    border-color: rgb(239, 243, 244);
+    border-color: var(--collor-gray-200);
     margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -47,7 +55,12 @@ hr {
   display: inline-block;
   padding: 0.2rem 0.6rem;
   margin-right: 0.3rem;
-  background-color: rgb(239, 243, 244);
+  background-color: var(--collor-gray-200);
+}
+
+.c-tag:hover {
+  background-color: var(--collor-gray-600);
+  color: var(--color-white);
 }
 
 .c-detail-content a {
@@ -63,7 +76,7 @@ hr {
   line-height: 2.6rem;
   margin-top: 3rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid rgb(239, 243, 244);
+  border-bottom: 1px solid var(--collor-gray-200);
 }
 
 .c-detail-content h3 {
@@ -75,7 +88,7 @@ hr {
 }
 
 .c-detail-content img {
-  border: 1px solid rgb(239, 243, 244);
+  border: 1px solid var(--collor-gray-200);
 }
 
 .c-detail-content ul {
@@ -89,3 +102,18 @@ hr {
     padding: 0 3px;
   }*/
   
+
+.c-search {
+  display: flex;
+  border: 1px solid var(--collor-gray-200);
+}
+
+.c-search__input {
+  flex-grow: 1;
+  padding: 0.625rem;
+}
+
+.c-search__button {
+  padding: 0.5rem;
+}
+

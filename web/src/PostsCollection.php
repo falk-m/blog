@@ -16,7 +16,7 @@ class PostsCollection
         $this->baseUrl = $baseUrl;
     }
 
-    public function getList(int $limit, int $offset)
+    public function getList(int $limit, int $offset, string $search = '', string $tag = '')
     {
 
         $Parsedown = new MarkDownParser();
@@ -36,6 +36,21 @@ class PostsCollection
             $content = str_replace($matches[0], '', $markdownContent);
             $header = $matches[1];
             $url = dirname(substr(realpath($postFile), strlen($baseDir)));
+            $header = Yaml::parse($header);
+
+            if (!empty($tag)) {
+                $postTags =  array_map('strtolower', $header['taxonomy']['tag'] ?? []);
+
+                if (!in_array(strtolower($tag), $postTags)) {
+                    continue;
+                }
+            }
+
+            if (!empty($search)) {
+                if (!str_contains($markdownContent, $search)) {
+                    continue;
+                }
+            }
 
             $Parsedown->setBaseImagePath($this->baseUrl . '/media' . $url . '/');
             $content = $Parsedown->text($content);
@@ -47,7 +62,7 @@ class PostsCollection
             $posts[] = [
                 "file" =>  $filePath,
                 "url" => $this->baseUrl . $url,
-                "header" => Yaml::parse($header),
+                "header" => $header,
                 "teaser" => $teaser
             ];
         }

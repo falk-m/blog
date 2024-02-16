@@ -1,8 +1,8 @@
 ---
 title: 'Server side event tracking with matomo'
 taxonomy:
-tag:
-- PHP
+    tag:
+        - PHP
 date: '2024-01-31'
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Server side events with php"
 taxonomy:
-tag:
-  - PHP
-  - JS
+    tag:
+        - PHP
+        - JS
 date: "2024-02-06"
 ---
 

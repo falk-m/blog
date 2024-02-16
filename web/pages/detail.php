@@ -12,6 +12,13 @@ return function (Blog $app) {
         return;
     }
 
+    $app->templateEngine->registerFunction('format_tags', function (array $tags) {
+
+        return implode('', array_map(function ($tag) {
+            return "<span class='c-tag'>{$tag}</span>";
+        }, $tags));
+    });
+
     echo $app->templateEngine->render('detail', [
         "post" => $post
     ]);

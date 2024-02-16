@@ -1,7 +1,8 @@
 ---
 title: 'session management with tokens'
-tag:
-    - SECURITY
+taxonomy:
+    tag:
+        - SECURITY
 date: '2024-02-13'
 ---
 

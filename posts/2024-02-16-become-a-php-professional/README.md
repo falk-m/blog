@@ -1,6 +1,7 @@
 ---
 title: 'Become a PHP professional developer | Part 1'
-tag:
+taxonomy:
+  tag:
     - PHP
 date: '2024-02-16'
 ---

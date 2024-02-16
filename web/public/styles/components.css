@@ -43,6 +43,13 @@ hr {
     margin-bottom: 0.5rem;
 }
 
+.c-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  margin-right: 0.3rem;
+  background-color: rgb(239, 243, 244);
+}
+
 .c-detail-content a {
   text-decoration: underline;
 }
@@ -69,6 +76,11 @@ hr {
 
 .c-detail-content img {
   border: 1px solid rgb(239, 243, 244);
+}
+
+.c-detail-content ul {
+  list-style: circle;
+  margin-left: 1.5rem;
 }
 
 /*pre {

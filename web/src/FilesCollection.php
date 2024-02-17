@@ -43,6 +43,9 @@ class FilesCollection
             case "jpg":
                 $ctype = "image/jpg";
                 break;
+            case "svg":
+                $ctype = "image/svg+xml";
+                break;
             default:
                 $ctype = "application/force-download";
         }

@@ -44,6 +44,12 @@ Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
 Header set X-Content-Type-Options "nosniff"
 </IfModule>
 
+<IfModule mod_headers.c>
+    <FilesMatch "\.(?i:svg)$">
+        Header set Content-Security-Policy "script-src 'none'"
+    </FilesMatch>
+</IfModule>
+
 RewriteEngine On
 
 # block files and folders beginning with a dot, such as .git

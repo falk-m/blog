@@ -25,7 +25,11 @@ class PostsCollection
 
         $posts = [];
 
-        $listFiles = array_slice(array_reverse($postFiles), $offset, $limit);
+        if (empty($search) && empty($tag)) {
+            $listFiles = array_slice(array_reverse($postFiles), $offset, $limit);
+        } else {
+            $listFiles = array_reverse($postFiles);
+        }
 
         foreach ($listFiles as $postFile) {
 
@@ -65,6 +69,10 @@ class PostsCollection
                 "header" => $header,
                 "teaser" => $teaser
             ];
+        }
+
+        if (!empty($search) || !empty($tag)) {
+            $posts = array_slice($posts, $offset, $limit);
         }
 
         return $posts;

@@ -18,6 +18,7 @@ const bc = new BroadcastChannel("test_channel");
 
 The 'onmessage' callback receives the messages sent to the channel.
 conveniently, it doesn't receive own messages.
+You can use different BroadcastChannel objects to send and receive messages in the same window.
 
 ```JS
 bc.onmessage = (event) => {

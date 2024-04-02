@@ -4,10 +4,16 @@
   </head>
   <body>
     <script>
+      const bcR = new BroadcastChannel("test_channel");
+
+      bcR.onmessage = (event) => {
+        console.log("brR", event.data);
+      };
+
       const bc = new BroadcastChannel("test_channel");
 
       bc.onmessage = (event) => {
-        console.log(event.data);
+        console.log("br", event.data);
       };
 
       bc.postMessage("This is a test message.");

@@ -4,6 +4,7 @@ taxonomy:
     tag:
         - SECURITY
 date: '2024-02-13'
+updated: '2024-10-18'
 ---
 
 This Post is not about OAuth.
@@ -69,3 +70,9 @@ In a simple case, the API sets a session cookie after login:
 - when the login server and resource server are different servers use public-private key encryption to signate and verify the access-token
 - lock the user (e.g. for 10min) after 3 failed login trials, and inform the user via email
 - API backend: Set 'access-control-allow-origin' header with the frontend domain and the 'Vary: Origin' header.
+
+***browser clients***
+
+- store access token in sessions storage
+  - use storage sync to use the session storage accross multible browser tabs
+- store refresh token in local store only if the user click on "stay logged in", otherwise in the sessionstorage

@@ -2,7 +2,7 @@
 title: 'Git Flow'
 taxonomy:
     tag:
-        - Other
+        - git
 date: '2024-10-22'
 ---
 

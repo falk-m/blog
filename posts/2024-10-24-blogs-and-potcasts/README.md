@@ -16,6 +16,7 @@ date: '2024-10-24'
  - http://www.smashingmagazine.com/feed/
  - https://css-tricks.com/feed/
  - https://www.joshwcomeau.com/rss.xml
+ - https://csscade.com/feed.xml
 
 ## Potcasts
 

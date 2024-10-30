@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Image gallery</title>
+        <style>
+            .gallery {
+                --min: 15rem;
+                --aspect-ratio: 4/3;
+                --gap: 10px;
+
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--gap);
+                list-style: none;
+                padding: 0;
+            }
+
+            .gallery > li {
+                flex: 1 1 var(--min);
+                height: max(25vh, 15rem);
+            }
+
+            @supports (aspect-ratio: 1) {
+                .gallery > li {
+                    aspect-ratio: var(--aspect-ratio);
+                    height: auto;
+                }
+            }
+
+            .gallery img {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <ul class="gallery">
+            <li><img src="https://placehold.co/2000x1000/png"></li>
+            <li><img src="https://placehold.co/1500x1500/png"></li>
+            <li><img src="https://placehold.co/2000x1000/png"></li>
+            <li><img src="https://placehold.co/1500x1500/png"></li>
+            <li><img src="https://placehold.co/1000x1500/png"></li>
+            <li><img src="https://placehold.co/2000x1000/png"></li>
+            <li><img src="https://placehold.co/1000x1500/png"></li>
+        </ul>
+
+    </body>
+</html>

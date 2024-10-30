@@ -35,7 +35,7 @@
 
         <?php foreach ($posts as $post) { ?>
             <div class="c-post">
-                <img class="c-post__image" src="<?php echo $baseUrl . '/identicon/' . md5($post["header"]["title"] ?? "") . '.svg' ?>" />
+                <img class="c-post__image" src="<?php echo $baseUrl . '/identicon/' . md5(strtolower(json_encode($post['header']['taxonomy']['tag'] ?? $post["header"]["title"] ?? ""))) . '.svg' ?>" />
                 <div class="c-post__content">
                     <h2 class="c-post__headline"><?php echo $post["header"]["title"] ?? "" ?></h2>
                     <span class="c-post__autor">from falk-m.de</span>

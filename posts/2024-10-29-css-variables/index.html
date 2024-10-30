@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>scoped css variables</title>
+        <style>
+            :root {
+                --blue: #cbe7ff;
+                --red: #ff300b;
+                --yellow: #fff59a;
+                --black: #000000;
+                --white: #ffffff
+            }
+            
+            .button {
+                --_background: var(--background, var(--blue));
+                --_text: var(--text, var(--black));
+
+                background-color: var(--_background);
+                color: var(--_text);
+            }
+
+            .button .icon {
+                border: 1px solid var(--_text);
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                border-radius: 100%;
+            }
+
+            .button--info {
+                --background: var(--yellow);
+            }
+
+            .button--alert {
+                --background: var(--red);
+                --text: var(--white)
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <button class="button">
+            <span class="icon">i</span> Text
+        </button>
+
+        <button class="button button--info">
+            <span class="icon">i</span> Text
+        </button>
+        
+        <button class="button button--alert">
+            <span class="icon">i</span> Text
+        </button>
+        
+    </body>
+</html>

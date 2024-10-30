@@ -117,3 +117,6 @@ hr {
   padding: 0.5rem;
 }
 
+.language-bash {
+  text-wrap: pretty;
+}

@@ -1,0 +1,376 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>CICD</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reset.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+
+    <link rel="stylesheet" href="assets/animations.css" />
+  </head>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section class="animation-gradient">
+          <h1>CI/CD</h1>
+        </section>
+
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs php" data-trim>
+          return function () {
+            header("Content-Type: text/plain");
+            $output = "";
+            $code = "";
+            $res = exec("cd .. && git pull", $output, $code);
+        
+            echo "Result:\n";
+            print_r($res);
+            echo "\n\n";
+            echo "Output:\n";
+            print_r($output);
+            echo "\n\n";
+            echo "Code:\n";
+            print_r($code);
+        };
+        </code></pre>
+
+
+        <img src="./assets/git_pull.png" />
+
+        </section>
+    
+        <section>
+          <h2>targets</h2>
+          <ul>
+            <li>build</li>
+            <li>test</li>
+            <li>metrics</li>
+            <li>backup</li>
+            <li>deployment</li>
+          </ul>
+        </section>
+    
+        <section>
+          <h2>build</h2>
+          <ul>
+            <li>npm
+              <ul>
+                <li>
+                  install
+                </li>
+                <li>
+                  build
+                </li>
+              </ul>
+            </li>
+            <li>composer
+              <ul>
+                <li>install</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+    
+        <section>
+          <h2>test</h2>
+          <ul>
+            <li>php unit tests
+              <ul>
+                <li>
+                  mocking, data providers, asserts,… 
+                </li>
+              </ul>
+            </li>
+            <li>
+              js test
+              <ul>
+                <li>
+                  karma
+                </li>
+                <li>
+                  jest
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+    
+        <section>
+          <h2>metrics</h2>
+          <ul>
+            <li>test coverage (total, diff)</li>
+            <li>bug finder (phpstan)</li>
+            <li>requirements (clean code, max file size, ...)</li>
+          </ul>
+        </section>
+    
+        <section>
+          <h2>backup</h2>
+          <ul>
+            <li>database</li>
+            <li>files</li>
+          </ul>
+        </section>
+    
+    
+        <section>
+          <h2>deployment</h2>
+          <ul>
+            <li>compress, upload, replace</li>
+            <li>configuration (token replacement)</li>
+            <li>db migrations</li>
+            <li>cache warmup</li>
+          </ul>
+        </section>
+    
+        <section>
+          composer.json
+          <pre data-id="code-animation"><code class="hljs json" data-trim>
+            {
+              "scripts": {
+                  "phpunit": "vendor/bin/phpunit --display-warnings --display-skipped --display-deprecations --display-errors --display-notices",
+                  "coverage": "vendor/bin/phpunit --coverage-html build/reports/html --coverage-clover build/reports/clover.xml",
+                  "csfixer": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+                  "phpstan": "vendor/bin/phpstan analyse src tests --memory-limit=1G",
+                  "rector": "vendor/bin/rector process --no-ansi",
+              }
+            }
+          </code></pre>
+          <small>https://github.com/tempestphp/tempest-framework/blob/main/composer.json</small>
+        </section>
+    
+        <section>
+            <h2>phpstan</h2>
+    
+            <img src="./assets/phpstan.png" />
+        </section>
+    
+        <section>
+            <h2>csfixer, rector</h2>
+    
+            <ul>
+              <li>PHP Coding Standards Fixer (PHP CS Fixer) </li>
+              <li>upgrades and refactors the PHP code</li>
+              <li>ide integration available</li>
+              <li>use as git hooks</li>
+            </ul>
+        </section>
+
+        <section class="animation-gradient">
+          <h1>Gitlab pipeline</h1>
+        </section>
+
+        <section>
+          <h2>Terms</h2>
+          
+          <ul>
+            <li>Stage</li>
+            <li>Job</li>
+            <li>Environments</li>
+            <li>Variables (global, Environments, process)</li>
+            <li>Artifact</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="./assets/variables.png" />
+        </section>
+
+        <section>
+          <img src="./assets/pipelines.png" />
+        </section>
+
+        <section>
+          <img src="./assets/pipeline.png" />
+        </section>
+
+        <section>
+          <img src="./assets/artifacts.png" />
+        </section>
+
+        <section>
+          <pre data-id="code-animation">
+            <code style="font-size: 0.7em;" class="hljs" data-trim data-line-numbers="1-3|5-9|11-18|20-27|29-33|35-40|41-47|48-51|53-60|61-66|68-76|78-87|89-100|101-110|111-113|114-116|117-121|122-125|126-132|133-134|135-138">
+              stages:
+              &nbsp;&nbsp;- build
+              &nbsp;&nbsp;- deploy
+              
+              workflow:
+              &nbsp;&nbsp;rules:
+              &nbsp;&nbsp;&nbsp;&nbsp;- if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME == "main"'
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when: always  # Run pipeline for push event on main branch
+              &nbsp;&nbsp;&nbsp;&nbsp;- when: never # Prevent pipeline for all other cases
+              
+              .frontend_node_modules-cache: &frontend_node_modules-cache
+              &nbsp;&nbsp;key:
+              &nbsp;&nbsp;&nbsp;&nbsp;files:
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'frontend/package-lock.json'
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'frontend/package.json'
+              &nbsp;&nbsp;paths:
+              &nbsp;&nbsp;&nbsp;&nbsp;- 'frontend/node_modules'
+              &nbsp;&nbsp;policy: pull
+              
+              .api_composer-cache: &api_composer-cache
+              &nbsp;&nbsp;key:
+              &nbsp;&nbsp;&nbsp;&nbsp;files:
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'api/composer.json'
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 'api/composer.lock'
+              &nbsp;&nbsp;paths:
+              &nbsp;&nbsp;&nbsp;&nbsp;- 'api/vendor'
+              &nbsp;&nbsp;policy: pull
+              
+              .frontend_build-cache: &frontend_build-cache
+              &nbsp;&nbsp;key: build-$CI_PIPELINE_ID
+              &nbsp;&nbsp;paths:
+              &nbsp;&nbsp;&nbsp;&nbsp;- frontend/dist
+              &nbsp;&nbsp;policy: pull
+              
+              build-job-php:
+              &nbsp;&nbsp;stage: build
+              &nbsp;&nbsp;image: php:latest
+              &nbsp;&nbsp;cache:
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *api_composer-cache
+              &nbsp;&nbsp;&nbsp;&nbsp;policy: pull-push
+              &nbsp;&nbsp;before_script:
+              &nbsp;&nbsp;&nbsp;&nbsp;- apt-get update
+              &nbsp;&nbsp;&nbsp;&nbsp;- apt-get install zip unzip
+              &nbsp;&nbsp;&nbsp;&nbsp;- cd api
+              &nbsp;&nbsp;&nbsp;&nbsp;- php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+              &nbsp;&nbsp;&nbsp;&nbsp;- php composer-setup.php
+              &nbsp;&nbsp;&nbsp;&nbsp;- php -r "unlink('composer-setup.php');"
+              &nbsp;&nbsp;script:
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Compiling the code..."
+              &nbsp;&nbsp;&nbsp;&nbsp;- php composer.phar install
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Compile complete."
+              
+              build-job-node:
+              &nbsp;&nbsp;stage: build
+              &nbsp;&nbsp;image: node:latest
+              &nbsp;&nbsp;cache:
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *frontend_node_modules-cache
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;policy: pull-push
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *frontend_build-cache
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;policy: push
+              &nbsp;&nbsp;script:
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Compiling the code..."
+              &nbsp;&nbsp;&nbsp;&nbsp;- cd frontend
+              &nbsp;&nbsp;&nbsp;&nbsp;- npm install
+              &nbsp;&nbsp;&nbsp;&nbsp;- npm run build
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Compile complete."
+
+              deploy-job-dev:
+              &nbsp;&nbsp;environment: dev
+              &nbsp;&nbsp;extends: .deploy-job
+              &nbsp;&nbsp;artifacts:
+              &nbsp;&nbsp;&nbsp;&nbsp;name: "dev"
+              &nbsp;&nbsp;&nbsp;&nbsp;paths:
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- frontend.zip
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- api.zip
+              &nbsp;&nbsp;&nbsp;&nbsp;when: on_success
+
+              deploy-job-live:
+              &nbsp;&nbsp;environment: production
+              &nbsp;&nbsp;extends: .deploy-job
+              &nbsp;&nbsp;when: manual
+              &nbsp;&nbsp;artifacts:
+              &nbsp;&nbsp;&nbsp;&nbsp;name: "prod"
+              &nbsp;&nbsp;&nbsp;&nbsp;paths:
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- frontend.zip
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- api.zip
+              &nbsp;&nbsp;&nbsp;&nbsp;when: on_success
+              
+              .deploy-job:      
+              &nbsp;&nbsp;stage: deploy
+              &nbsp;&nbsp;image: ubuntu:latest
+              &nbsp;&nbsp;dependencies:
+              &nbsp;&nbsp;&nbsp;&nbsp;- build-job-php
+              &nbsp;&nbsp;&nbsp;&nbsp;- build-job-node
+              &nbsp;&nbsp;cache:
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *api_composer-cache
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *frontend_node_modules-cache
+              &nbsp;&nbsp;&nbsp;&nbsp;- <<: *frontend_build-cache
+              &nbsp;&nbsp;rules:
+              &nbsp;&nbsp;&nbsp;&nbsp;- if: '$CI_COMMIT_REF_NAME == "main"'
+              &nbsp;&nbsp;before_script:
+              &nbsp;&nbsp;&nbsp;&nbsp;- apt-get update
+              &nbsp;&nbsp;&nbsp;&nbsp;- apt-get install zip unzip
+              &nbsp;&nbsp;&nbsp;&nbsp;- 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+              &nbsp;&nbsp;&nbsp;&nbsp;- mkdir -p ~/.ssh
+              &nbsp;&nbsp;&nbsp;&nbsp;- eval $(ssh-agent -s)
+              &nbsp;&nbsp;&nbsp;&nbsp;- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+              &nbsp;&nbsp;&nbsp;&nbsp;- (echo "$SSH_HOST") > ~/.ssh/known_hosts
+              &nbsp;&nbsp;&nbsp;&nbsp;- chmod 644 ~/.ssh/known_hosts
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh-add <(echo "$SSH_PRIVATE_KEY_BASE64" | base64 -d)
+              &nbsp;&nbsp;script:
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Replace token"
+              &nbsp;&nbsp;&nbsp;&nbsp;- find ./frontend/dist/deployment -iname "main.*.js" | xargs sed -i -e "s~\[API_URL\]~$API_URL~g"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "compress artefacts"
+              &nbsp;&nbsp;&nbsp;&nbsp;- zip -qr frontend.zip frontend/dist/deployment
+              &nbsp;&nbsp;&nbsp;&nbsp;- zip -qr api.zip api
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "upload artefacts"
+              &nbsp;&nbsp;&nbsp;&nbsp;- current_date_time=$(date +"%Y%m%d_%H%M%S")
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "mkdir $TEMP_DIR/$current_date_time"
+              &nbsp;&nbsp;&nbsp;&nbsp;- scp -P$SSH_PORT -r api.zip "$SSH_USER@$SSH_HOST:$TEMP_DIR/$current_date_time"
+              &nbsp;&nbsp;&nbsp;&nbsp;- scp -P$SSH_PORT -r frontend.zip "$SSH_USER@$SSH_HOST:$TEMP_DIR/$current_date_time"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "unzip artefacts"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "mkdir $TEMP_DIR/$current_date_time/src"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "unzip -q $TEMP_DIR/$current_date_time/api.zip -d $TEMP_DIR/$current_date_time/src"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "unzip -q $TEMP_DIR/$current_date_time/frontend.zip -d $TEMP_DIR/$current_date_time/src"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "override application"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/frontend/dist/deployment/. $APP_PATH/frontend"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/api/src/. $APP_PATH/api/src"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/api/migrations/. $APP_PATH/api/migrations"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/api/templates/. $APP_PATH/api/templates"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/api/vendor/. $APP_PATH/api/vendor"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "cp -ru $TEMP_DIR/$current_date_time/src/api/config/. $APP_PATH/api/config"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "remove unzip path"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "rm -rf $TEMP_DIR/$current_date_time/src"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "execute db migration ans text migration"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "/usr/bin/php81 $APP_PATH/api/bin/console doctrine:migrations:migrate"
+              &nbsp;&nbsp;&nbsp;&nbsp;- ssh -p$SSH_PORT "$SSH_USER@$SSH_HOST" "/usr/bin/php81 $APP_PATH/api/bin/console app:migrate-text"
+              &nbsp;&nbsp;&nbsp;&nbsp;- echo "Application successfully deployed."
+          </code>
+        </pre>
+        </section>
+    
+        <section class="animation-gradient">
+          <h1>Thanks</h1>
+          <a href="?print-pdf">print view</a>
+        </section>
+      </div>
+      
+    </div>
+
+		<script type="module">
+
+      import Reveal from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.esm.js";
+      import RevealMarkdown from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.esm.js";
+      import RevealZoom from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.esm.js";
+      import RevealNotes from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.esm.js";
+      import RevealSearch from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.esm.js";
+      import RevealHighlight from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.esm.js";
+     
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+  </body>
+</html>

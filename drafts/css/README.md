@@ -6,7 +6,6 @@
 - https://developer.mozilla.org/en-US/docs/Web/CSS/::part
 
 
-html{
-  font-family: arial;
-  font-size: clamp(12px, 2vw, 18px);
+body {
+  font-size: clamp(12px, 2vw, 18px); //not influence rem-unt, becource rem depends in the html element
 }

@@ -6,4 +6,5 @@ taxonomy:
 date: '2024-11-18'
 ---
 
-- [Slides](./slides/index.html)
+- [Slides (html)](./slides/index.html)
+- [Slides (Pdf)](./slides/slides.pdf)

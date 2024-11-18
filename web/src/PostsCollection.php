@@ -42,6 +42,10 @@ class PostsCollection
             $url = dirname(substr(realpath($postFile), strlen($baseDir)));
             $header = Yaml::parse($header);
 
+            if (str_starts_with($url, '.')) {
+                continue;
+            }
+
             if (!empty($tag)) {
                 $postTags =  array_map('strtolower', $header['taxonomy']['tag'] ?? []);
 

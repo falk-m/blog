@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conteiner query test</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="child">test</div>
+    </div>
+
+    <style>
+
+
+      /* Query Nearest Container */
+      @container (width > 80ch) {
+        .child {
+          background-color: #123;
+        }
+      }
+
+      .card {
+        container-type: inline-size;
+        width: 80%;
+
+        > .child {
+          width: 80%;
+          @container (width < 1000px) {
+            background-color: greenyellow;
+          }
+
+          @container (width < 500px) {
+            background-color: red;
+          }
+        }
+      }
+    </style>
+  </body>
+</html>

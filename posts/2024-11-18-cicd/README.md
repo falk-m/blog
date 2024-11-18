@@ -2,7 +2,7 @@
 title: 'CI/CD presentation'
 taxonomy:
     tag:
-        - JS
+        - OTHER
 date: '2024-11-18'
 ---
 

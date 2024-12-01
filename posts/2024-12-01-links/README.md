@@ -3,7 +3,7 @@ title: 'Links and stuff of the week'
 taxonomy:
     tag:
         - Other
-date: '2024-21-01'
+date: '2024-12-01'
 ---
 
 ## Links

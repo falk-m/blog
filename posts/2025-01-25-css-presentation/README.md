@@ -1,10 +1,10 @@
 ---
-title: 'CI/CD presentation'
+title: 'CSS presentation'
 taxonomy:
     tag:
-        - OTHER
+        - CSS
         - PRESENTATION
-date: '2024-11-18'
+date: '2025-01-25'
 ---
 
 - [Slides (html)](./slides/index.html)

@@ -1,0 +1,605 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>CSS</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reset.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+
+    <link rel="stylesheet" href="assets/animations.css" />
+  </head>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <section class="animation-gradient">
+          <h1>Was mit CSS</h1>
+        </section>
+
+        <section class="animation-gradient">
+          <h1>nesting</h1>
+        </section>
+
+        <section>
+
+          <pre data-id="code-animation"><code class="hljs css" data-trim>
+            .foo { color: #000000; }
+            .foo .bar { color: #fd2020; }
+            .foo .bar > .baz { color: #ffffff; }
+          </code></pre>
+
+          <pre data-id="code-animation"><code class="hljs css" data-trim>
+            .foo {
+              color: #000000;
+              & .bar {
+                color: #fd2020; 
+                & > .baz {
+                  color: #ffffff;
+                } 
+              }
+            }
+          </code></pre>
+       </section>
+
+       <section>
+
+        <pre data-id="code-animation"><code class="hljs css" data-trim>
+          .a { color: #00c2cb; }
+          .a:hover { color: #3498db; }
+        </code></pre>
+
+        <pre data-id="code-animation"><code class="hljs css" data-trim>
+          .a {
+            color: #00c2cb;
+            &:hover {
+              color: #3498db;
+            }
+          }
+        </code></pre>
+     </section>
+
+       <section>
+        <img src="./assets/nesting.png" />
+        <p>
+          ~92%
+        </p>
+       </section>
+
+
+        <section class="animation-gradient">
+          <h1>display: content</h1>
+        </section>
+
+        <section>
+
+           <pre data-id="code-animation"><code class="hljs css" data-trim>
+              .wrapper {
+                display: flex;
+                width: 100%;
+              }
+              .image {
+                aspect-ratio: 1;
+                background-color: aqua;
+              }
+              .details {
+                background-color: bisque;
+              }
+           </code></pre>
+
+           <pre data-id="code-animation"><code class="hljs html" data-trim>
+            <div class="wrapper">
+              <div class="image">
+                Image
+              </div>
+              <div class="details">
+                <h2>Title</h2>
+                <p>
+                  Description
+                </p>
+              </div>
+            </div>
+         </code></pre>
+        </section>
+
+        <section>
+
+          <style>
+            .box1 {
+              .wrapper {
+                display: flex;
+                width: 100%;
+              }
+              .wrapper > * {
+                flex-grow: 1;
+              }
+              .image {
+                background-color: aqua;
+              }
+              .details {
+                background-color: bisque;
+              }
+            }
+          </style>
+
+          <div class="box1">
+            <div class="wrapper">
+              <div class="image">
+                Image
+              </div>
+              <div class="details">
+                <h2>Title</h2>
+                <p>
+                  Description
+                </p>
+              </div>
+            </div>
+          </div>
+       </section>
+
+       <section>
+
+        <style>
+          .box1-mobile {
+            .wrapper {
+              flex-direction: column;
+            }
+            .image {
+              order: 2
+            }
+            .details {
+              display: contents;
+              h2 {
+                order: 1;
+              }
+
+              p {
+                order: 3;
+              }
+            }
+          }
+        </style>
+
+        <div class="box1 box1-mobile">
+          <div class="wrapper">
+            <div class="image">
+              Image
+            </div>
+            <div class="details">
+              <h2>Title</h2>
+              <p>
+                Description
+              </p>
+            </div>
+          </div>
+        </div>
+     </section>
+
+     <section>
+
+      <pre data-id="code-animation"><code class="hljs css" data-trim>
+        .wrapper { flex-direction: column; }
+        .image {
+          order: 2
+        }
+        .details {
+          display: contents;
+          h2 {
+            order: 1;
+          }
+          p {
+            order: 3;
+          }
+        }
+      </code></pre>
+
+      <pre data-id="code-animation"><code class="hljs html" data-trim>
+       <div class="wrapper">
+         <div class="image">
+           Image
+         </div>
+         <div class="details">
+           <h2>Title</h2>
+           <p>
+             Description
+           </p>
+         </div>
+       </div>
+    </code></pre>
+   </section>
+
+
+   <section class="animation-gradient">
+      <h1>stacking contexts</h1>
+   </section>
+
+  <section>
+    <pre data-id="code-animation"><code class="hljs html" data-trim>
+      
+      <header>
+        Header
+      </header>
+      <main>
+        <div class="tooltip">
+          A tooltip
+        </div>
+        <p>Some main content</p>
+      </main>
+      
+  </code></pre>
+
+  <pre data-id="code-animation"><code class="hljs css" data-trim>
+      
+    header {
+      position: relative;
+      z-index: 2;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+    }
+  
+    .tooltip {
+      position: absolute;
+      z-index: 999999;
+    }
+    
+    </code></pre>
+  </section>
+
+   <section>
+
+    <style>
+      .box_isolation1 {
+        
+        header {
+          background-color: yellow;
+          position: relative;
+          z-index: 2;
+        }
+        main {
+          background-color: green;
+          position: relative;
+          z-index: 1;
+
+          .tooltip {
+            background-color: red;
+            position: absolute;
+            z-index: 999999;
+            top: -50px;
+            left: 0px;
+            right: 0px;
+          }
+        }
+      }
+    </style>
+
+    <div class="box_isolation1">
+      <header>
+        Header
+      </header>
+      <main>
+        <div class="tooltip">
+          A tooltip
+        </div>
+        <p>Some main content</p>
+      </main>
+    </div>
+   </section>
+
+   <section>
+    <ul>
+      <li>Header</li>
+      <li>Main
+        <ul>
+          <li>
+            Tooltip
+          </li>
+          <li>
+            p
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+   <section>
+    <pre data-id="code-animation"><code class="hljs html" data-trim>
+      
+      <header>
+        Header
+      </header>
+      <main>
+        <div class="tooltip">
+          A tooltip
+        </div>
+        <p>Some main content</p>
+      </main>
+      
+  </code></pre>
+
+
+
+  <pre data-id="code-animation"><code class="hljs css" data-trim data-line-numbers="7">
+      
+    header {
+      position: relative;
+      z-index: 2;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+    }
+  
+    .tooltip {
+      position: absolute;
+      z-index: 999999;
+    }
+    
+    </code></pre>
+  </section>
+
+  <section>
+    <ul>
+      <li>Header</li>
+      <li>
+        Tooltip
+      </li>
+      <li>
+        p
+      </li>
+    </ul>
+  </section>
+
+   <section>
+
+    <style>
+      .box_isolation2 {
+        
+        header {
+          background-color: yellow;
+          position: relative;
+          z-index: 2;
+        }
+        main {
+          background-color: green;
+          position: relative;
+        
+
+          .tooltip {
+            background-color: red;
+            position: absolute;
+            z-index: 999999;
+            top: -50px;
+            left: 0px;
+            right: 0px;
+          }
+        }
+      }
+    </style>
+
+    <div class="box_isolation2">
+      <header>
+        Header
+      </header>
+      <main>
+        <div class="tooltip">
+          A tooltip
+        </div>
+        <p>Some main content</main>
+    </div>
+   </section>
+
+   
+  <section class="animation-gradient">
+    <h1>display attr</h1>
+  </section>
+
+  <section>
+    <pre data-id="code-animation"><code class="hljs css" data-trim>
+      
+      .block_flex {
+        display: block flex;
+      }
+
+      .inline_flex {
+        display: inline flex;
+      }
+      </code></pre>
+  
+
+  <style>
+    .section_display_block {
+      .block {
+        display: block flex;
+        margin: .5rem;
+        background-color: aqua;
+      }
+
+      .inline {
+        display: inline flex;
+        margin: .5rem;
+        background-color:aquamarine;
+      }
+
+      .block, .inline {
+        > * {
+          padding: 0.5rem;
+          margin: 0.5rem;
+          border: 1px solid black;
+        }
+      }
+    }
+  </style>
+
+  <div class="section_display_block">
+    <div class="block">
+       <div>Item1</div>
+       <div>Item2</div>
+    </div>
+
+    <div class="inline">
+      <div>Item1</div>
+      <div>Item2</div>            
+    </div>
+  </div>
+  </section>
+
+  <section class="animation-gradient">
+    <h1>@media pointer</h1>
+  </section>
+
+  <section>
+    <h2>@media (pointer: fine) {}</h2>
+    <p>
+      The primary input mechanism includes an accurate pointing device, such as a <strong>mouse</strong>.
+    </p>
+
+    <h2>@media (pointer: coarse) {}</h2>
+    <p>
+      The primary input mechanism includes a pointing device of limited accuracy, such as a <strong>finger</strong> on a touchscreen.
+    </p>
+    
+  </section>
+
+  <section>
+    <pre data-id="code-animation"><code class="hljs css" data-trim>
+      
+      @media (pointer: fine) {
+        input[type="checkbox"] {
+          width: 15px;
+          height: 15px;
+          border-width: 1px;
+        }
+      }
+      
+      @media (pointer: coarse) {
+        input[type="checkbox"] {
+          width: 30px;
+          height: 30px;
+          border-width: 2px;
+        }
+      }
+      </code></pre>
+  
+  </section>
+
+
+  <section class="animation-gradient">
+    <h1>wrong variable</h1>
+  </section>
+
+  <section>
+
+    <pre data-id="code-animation"><code class="hljs css" data-trim>
+        :root { --bg: 20px;}
+
+        p, div { 
+          background-color: red; border: 1px solid green; 
+        }
+  
+        p { 
+          background-color: var(--bg); 
+        }
+  
+        div {
+          background-color: var(--other);
+        }
+    </code></pre>
+
+    </section>
+
+    <section>
+
+    <style>
+
+      .section_vars {
+        --bg: 20px;
+        color: #fff;
+
+        p, div { 
+        background-color: red; border: 1px solid green;
+        }
+
+        p { 
+          background-color: var(--bg); 
+        }
+
+        div {
+          background-color: var(--other);
+        }
+      }
+
+      
+    </style>
+
+    <div class="section_vars">
+      <p>
+        p tag
+      </p>
+
+      <div>
+        div
+      </div>
+    </div>
+    <div style="height: 1rem;"></div>
+    <small>The browser doesn’t know if your property value is valid until the variable is resolved, and by then it has already processed the cascade and has thrown away any potential fallbacks.</small>
+
+  </section>
+        <section class="animation-gradient">
+          <h1>Thanks</h1>
+          <a href="?print-pdf">print view</a>
+
+          <div>
+            <ul>
+              <li>
+                <a href="https://www.joshwcomeau.com/css/stacking-contexts/" target="_blank">stacking-context</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/de/docs/Web/CSS/display" target="_blank">display attr</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer" target="_blank">@media pointer</a>
+              </li>
+              <li>
+                <a href="https://www.stefanjudis.com/today-i-learned/custom-properties-affect-how-invalid-css-declarations-are-handled/" target="_blank">undefined variable</a>
+              </li>
+            </ul>
+          </div>
+         
+        </section>
+      </div>
+      
+    </div>
+
+		<script type="module">
+
+      import Reveal from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.esm.js";
+      import RevealMarkdown from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.esm.js";
+      import RevealZoom from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.esm.js";
+      import RevealNotes from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.esm.js";
+      import RevealSearch from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.esm.js";
+      import RevealHighlight from "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.esm.js";
+     
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+  </body>
+</html>

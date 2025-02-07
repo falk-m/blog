@@ -1,0 +1,392 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Presentation</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./revealjs/dist/revealjs.css" />
+    <link rel="stylesheet" href="./revealjs/dist/theme-black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+    <link rel="stylesheet" href="assets/custom-theme-overrides.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="bg-title">
+          <h1>Create a ChaosMap</h1>
+          <span>privacy fist</span>
+        </section>
+
+        <section>
+          <ul>
+            <li>
+              Map integration on website
+            </li>
+            <li>
+              custom styled map
+            </li>
+            <li>
+              display third party api data
+            </li>
+            <li>
+              <strong>without dataprotection layer!</strong>
+            </li>
+          </ul>
+        </section>
+
+        <section class="bg-grid">
+          <h2>The map</h2>
+        </section>
+
+        <section>
+          <h3>openfreemap.org</h3>
+          <img src="./assets/openfreemap_logo.jpg" />
+        </section>
+
+        <section class="bg2">
+          <ul>
+            <li>open-source</li>
+            <li>no limits</li>
+            <li>no registration, no API keys</li>
+            <li>commercial usage allowed</li>
+            <li>provide weekly full planet</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="./assets/openfreemap_styles.png" />
+        </section>
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs html" data-trim>
+            &lt;script src=&quot;https://unpkg.com/maplibre-gl/dist/maplibre-gl.js&quot;&gt;&lt;/script&gt;
+            &lt;link href=&quot;https://unpkg.com/maplibre-gl/dist/maplibre-gl.css&quot; rel=&quot;stylesheet&quot; /&gt;
+          </code></pre>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            &lt;div id=&quot;map&quot; style=&quot;width: 100%; height: 500px&quot;&gt;&lt;/div&gt;
+            &lt;script&gt;
+              const map = new maplibregl.Map({
+                style: &#39;https://tiles.openfreemap.org/styles/liberty&#39;,
+                center: [12.377694794, 51.34326162],
+                zoom: 11,
+                container: &#39;map&#39;,
+              })
+            &lt;/script&gt;
+          </code></pre>
+        </section>
+       
+        <section>
+          <img src="./assets/map_in_browser.png" />
+        </section>
+
+        <section class="bg-grid">
+          <h2>customize the map</h2>
+        </section>
+
+        <section>
+          <img src="./assets/maputnik.png" />
+          <small>https://maputnik.github.io/editor?style=https://tiles.openfreemap.org/styles/positron</small>
+        </section>
+
+        <section class="bg2">
+          <h3>Maputnik</h3>
+          <ul>
+            <li>load default style</li>
+            <li>streets, labels, wood, buildings, water, ...</li>
+            <li>visibility by zoomlevel, color, size, ...</li>
+            <li>style by filter (e.g. name, zoom level)</li>
+            <li>export nur style json file</li>
+          </ul>
+        </section>
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs js" data-trim data-line-numbers="2">
+              const map = new maplibregl.Map({
+                style: &#39;./style.json&#39;,
+                center: [12.377694794, 51.34326162],
+                zoom: 11,
+                container: &#39;map&#39;,
+              })
+          </code></pre>
+        </section>
+
+        <section>
+          <img src="./assets/map_styled.png" />
+        </section>
+
+        <section class="bg-grid">
+          <h2>The proxy</h2>
+        </section>
+
+        <section>
+         <img src="./assets/proxy_1.png" />
+        </section>
+
+        <section>
+          <h3>actual state</h3>
+          <ul>
+            <li>client request resources on diffrent servers</li>
+            <li>third parties recive request, can send cookies, use server logging of IP, ...</li>
+            <li>need dataprivacy layer on site</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="./assets/proxy_2.png" />
+         </section>
+ 
+         <section class="bg2">
+          <h3>with proxy</h3>
+           <ul>
+             <li>all requests to your server</li>
+             <li>server request third pary resouces and deliver it to client</li>
+             <li>no need dataprivacy layer on site</li>
+             <li>can use cache</li>
+           </ul>
+         </section>
+
+         <section>
+          <h3>/proxy/index.php</h3>
+          <pre data-id="code-animation"><code class="hljs php" data-trim>
+            use FalkM\Proxy\Proxy;
+            require_once('vendor/autoloader.php');
+
+            $config = ["proxies" => [
+                          "tiles" => [
+                              "url" => "https://tiles.openfreemap.org"
+                          ],
+                          "maplibre-gl" => [
+                              "url" => "https://unpkg.com/maplibre-gl@5.1.0"
+                          ]
+                      ]];
+            (new Proxy($config))->run();
+          </code></pre>
+        </section>
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs html" data-trim>
+            &lt;script src=&quot;./proxy/maplibre-gl/dist/maplibre-gl.js&quot;&gt;&lt;/script&gt;
+            &lt;link href=&quot;./proxy/maplibre-gl/dist/maplibre-gl.css&quot; rel=&quot;stylesheet&quot; /&gt;
+          </code></pre>
+          <pre data-id="code-animation"><code class="hljs js" data-trim data-trim data-line-numbers="4">
+            &lt;div id=&quot;map&quot; style=&quot;width: 100%; height: 500px&quot;&gt;&lt;/div&gt;
+            &lt;script&gt;
+              const map = new maplibregl.Map({
+                style: &#39;./proxy/tiles/styles/liberty&#39;,
+                center: [12.377694794, 51.34326162],
+                zoom: 11,
+                container: &#39;map&#39;,
+              })
+            &lt;/script&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <ul>
+            <li>needs .htaccess or nginx rewrite for /proxy/*</li>
+            <li>proxy replace dest-urls with proxy-urls in json, html and js files</li>
+            <li>full example with caching: <a href="https://github.com/falk-m/proxy/tree/master/demo" target="_blank">github.com/falk-m/proxy/tree/master/demo</a></li>
+          </ul>
+        </section>
+
+        <section class="bg-grid">
+          <h2>extend the map</h2>
+        </section>
+
+        <section>
+          <h3>add standard marker</h3>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            new maplibregl.Marker({color: "#3FB1CE"})
+            .setLngLat([12.375019474, 51.34091034])
+            .setPopup(new maplibregl.Popup().setHTML("<h1>Hello World!</h1>"))
+            .addTo(map);
+          </code></pre>
+        </section>
+      
+        <section>
+          <img src="./assets/map_standard_marker.png" />
+        </section>
+
+        <section>
+          <h3>more marker</h3>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            const points = [
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [12.396221, 51.3464008],
+              },
+            },
+            ...
+          ];
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>add source to map</h3>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            map.addSource("points", {
+              type: "geojson",
+              data: {
+                type: "FeatureCollection",
+                features: points,
+              }
+            });
+          </code></pre>
+        </section>
+        
+        <section>
+          <h3>add custom marker from image</h3>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            map
+            .loadImage("./marker.png")
+            .then((image) => map.addImage("custom-marker", image.data));
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>display points with custom marker</h3>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+            map.addLayer({
+              id: "symbols",
+              type: "symbol",
+              source: "points",
+              layout: {
+                "icon-image": "custom-marker",
+                "icon-size": 0.4
+              },
+            });
+          </code></pre>
+        </section>
+
+        <section>
+          <img src="./assets/map_marker.png" />
+        </section>
+
+        <section>
+          <h3>cluster marker</h3>
+          <img src="./assets/map_marker_cluster.png" />
+        </section>
+
+        <section>
+          <h3>popups</h3>
+          <img src="./assets/map_marker_popup.png" style="height: 400px" />
+        </section>
+
+        <section>
+          <h3>Space Api</h3>
+          <ul>
+            <li><a href="https://spaceapi.io/" target="_blank">spaceapi.io</a></li>
+            <li>information about hackerspaces, makerspaces, fablabs, chaostreffs</li>
+            <li>status, url, name, address, projects, calendar, blog, ...</li>
+            <li><a href="https://spaceapi.io/#schema">SpaceAPI Schema</a></li>
+            <li><a href="https://github.com/SpaceApi/directory/blob/master/directory.json">Directory: list of URLs</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs json" style="font-size: 0.8em;" data-trim data-line-numbers="1-12|13-22|23-26|27-32">  
+            {
+              "api_compatibility":[
+                 "15"
+              ],
+              "space":"Eigenbaukombinat Halle e.V.",
+              "logo":"https://eigenbaukombinat.de/ebklogo.png",
+              "url":"https://eigenbaukombinat.de",
+              "location":{
+                 "address":"Landsberger Stra\u00dfe 3, 06112 Halle (Saale), Germany",
+                 "lon":11.99221,
+                 "lat":51.47996
+              },
+              "feeds":{
+                 "calendar":{
+                    "type":"ical",
+                    "url":"https://kalender.eigenbaukombinat.de/public/public.ics"
+                 },
+                 "blog":{
+                    "type":"rss",
+                    "url":"https://eigenbaukombinat.de/index.xml"
+                 }
+              },
+              "contact":{
+                 "email":"kontakt@eigenbaukombinat.de",
+                 "issue_mail":"kontakt@eigenbaukombinat.de"
+              },
+              "state":{
+                 "open":false
+              },
+              "ext_ccc":"chaostreff",
+              "ext_habitat":"chaoszone"
+           }
+          </code></pre>
+        </section>
+
+        <section>
+
+          <a href="https://code.falk-m.de/cz/" target="_blank">code.falk-m.de/cz/</a>
+          (later on <a href="https://chaoszone.cz/" target="_blank">https://chaoszone.cz/</a>)
+
+          <img src="./assets/czmap.png"/>
+
+         
+        </section>
+
+        <section class="bg2">
+          <div class="text-left">
+            <ul>
+              <li><a href="https://openfreemap.org/quick_start/" target="_blank">openfreemap.org/quick_start/</a></li>
+              <li><a href="https://maputnik.github.io/editor" target="_blank">maputnik.github.io/editor</a></li>
+              <li><a href="https://maplibre.org/maplibre-gl-js/docs/examples/" target="_blank">maplibre.org/maplibre-gl-js/docs/examples/</a></li>
+              <li><a href="https://maplibre.org/maplibre-gl-js/docs/API/" target="_blank">maplibre.org/maplibre-gl-js/docs/API/</a></li>
+            </ul>
+            <br/>
+            <br/>
+            complete example:<br/>
+            <a href="https://github.com/falk-m/chaoszone-map" target="_blank">github.com/falk-m/chaoszone-map</a>
+          </div>
+        </section>
+
+
+        <section class="bg-title">
+          <h1>Thanks</h1>
+          <a href="?print-pdf">print view</a>
+        </section>
+      </div>
+    </div>
+
+    <script src="./revealjs/dist/revealjs.js"></script>
+
+    <script type="module">
+      Reveal.configure({ pdfMaxPagesPerSlide: 1 });
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: "slide",
+        backgroundTransition: "slide",
+        mouseWheel: true,
+        //slideNumber: 'c/t',
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+
+    </script>
+  </body>
+</html>

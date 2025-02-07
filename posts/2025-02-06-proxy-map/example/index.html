@@ -1,0 +1,62 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+
+<div id="map" style="width: 100%; height: 500px"></div>
+<script>
+  const map = new maplibregl.Map({
+    style: './style.json',
+    center: [12.377694794, 51.34326162],
+    zoom: 13,
+    container: 'map',
+  });
+
+  map.on('load', () => {
+
+    map
+    .loadImage("./marker.png")
+    .then((image) => map.addImage("custom-marker", image.data));
+
+    const marker = new maplibregl.Marker({color: "#3FB1CE"})
+        .setLngLat([12.375019474, 51.34091034])
+        .setPopup(new maplibregl.Popup().setHTML("<h1>Hello World!</h1>"))
+        .addTo(map);
+      
+
+    const points = [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [12.396221, 51.3464008],
+        },
+      }
+    ];
+
+    map.addSource("points", {
+      type: "geojson",
+      data: {
+        type: "FeatureCollection",
+        features: points,
+      }
+    });
+
+  map.addLayer({
+    id: "symbols",
+    type: "symbol",
+    source: "points",
+    layout: {
+      "icon-image": "custom-marker",
+      "icon-size": 0.4
+    },
+  });
+
+  });
+
+</script>
+    </body>
+</html>

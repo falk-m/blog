@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Presentation</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./revealjs/dist/revealjs.css" />
+    <link rel="stylesheet" href="./revealjs/dist/theme-black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+    <link rel="stylesheet" href="assets/custom-theme-overrides.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="bg-title">
+          <h1>Title</h1>
+        </section>
+
+        <section>
+          <p>standard bg</p>
+        </section>
+
+        <section class="bg-grid">
+          <p>bg-grid</p>
+        </section>
+
+        <section class="bg2">
+          <p>BG2</p>
+        </section>
+
+        <section>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+        </section>
+
+        <section>
+          <pre data-id="code-animation"><code class="hljs css" data-trim>
+            .foo { color: #000000; }
+            .foo .bar { color: #fd2020; }
+            .foo .bar > .baz { color: #ffffff; }
+          </code></pre>
+        </section>
+
+        <section class="bg-title">
+          <h1>Thanks</h1>
+          <a href="?print-pdf">print view</a>
+        </section>
+      </div>
+    </div>
+
+    <script src="./revealjs/dist/revealjs.js"></script>
+
+    <script type="module">
+
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: "slide",
+        backgroundTransition: "slide",
+        mouseWheel: true,
+        //slideNumber: 'c/t',
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>

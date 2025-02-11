@@ -1,0 +1,428 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Presentation</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./revealjs/dist/revealjs.css" />
+    <link rel="stylesheet" href="./revealjs/dist/theme-black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+    <link rel="stylesheet" href="assets/custom-theme-overrides.css" />
+
+    <script src="./assets/twind.js"></script>
+    <script>
+      twind.install({
+        ignorelist: /^visible/,
+      })
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="bg-title">
+          <h1>Der Schlüssel<br/>vom Schlüssel<br/>vom Schlüssel</h1>
+          <span>Die Epa - technische Erklärung</span>
+        </section>
+
+        <section>
+          
+          <div class="text-2xl">
+
+            Vortrag: Authentifizierung, SAML, etc, wird nicht betrachtet<br/>
+            Empfehlungen:<br/>
+            <br/>
+            36c3: "Hacker hin oder her": Die elektronische Patientenakte kommt!<br/>
+            <a href="https://media.ccc.de/v/36c3-10595-hacker_hin_oder_her_die_elektronische_patientenakte_kommt" target="_blank">media.ccc.de/v/36c3-10595-hacker_hin_oder_her_die_elektronische_patientenakte_kommt</a><br/>
+            <br/>
+            38c3: „Konnte bisher noch nie gehackt werden“: Die elektronische Patientenakte kommt - jetzt für alle!<br/>
+            <a href="https://media.ccc.de/v/38c3-konnte-bisher-noch-nie-gehackt-werden-die-elektronische-patientenakte-kommt-jetzt-fr-alle" target="_blank">media.ccc.de/v/38c3-konnte-bisher-noch-nie-gehackt-werden-die-elektronische-patientenakte-kommt-jetzt-fr-alle</a>
+          
+          </div>
+        </section>
+
+        <section>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/dokument.png" />
+            <small>1100 Seiten Spezifikation</small>
+          </div>
+
+        </section>
+
+        <section>
+
+          <div class="flex items-center">   
+            <div>
+              <img src="./assets/dokument.png" style="height: 4em; max-width: none;" />
+            </div>
+            <div class="ml-4">
+              zu schützende Dokument
+            </div>
+          </div>
+
+          <div class="flex items-center fragment" data-fragment-index="1">   
+            <div>
+              <img src="./assets/meta_document.png" style="height: 4em; max-width: none;" />
+            </div>
+            <div class="ml-4 text-left">
+              Meta Daten<br/>
+              <small>
+                <ul>
+                  <li>title, author, comments, creationTime, languageCode, mimeType, size</li>
+                  <li>u.a. für Suche und Exploration</li>
+                </ul></small>
+            </div>
+          </div>
+
+          <div class="flex items-center fragment" data-fragment-index="2">   
+            <div>
+              <img src="./assets/policy_document.png" style="height: 4em; max-width: none;" />
+            </div>
+            <div class="ml-4 text-left">
+              Policy-Dokumente<br/>
+              <small>
+                <ul>
+                  <li>Zugriffsregeln auf Dokument, Ersteller-Recht, ...</li>
+                  <li>Für jeden Versicherten, Vertreter, jede berechtigte Leistungserbringerinstitution ein Dokument</li>
+                  <li>wird im Frontend erzeugt</li>
+                </ul></small>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex">
+            <div class="flex justify-center items-center flex-col">
+              <img src="./assets/dokument.png" />
+              <small>zu schützende Dokument</small>
+            </div>
+            <div class="fragment flex justify-center items-center flex-col" data-fragment-index="1">
+              <img src="./assets/dokuemntenschluessel.png" />
+              <small>dokumentenindividueller symmetrischer Dokumentenschlüssel</small>
+            </div>
+            <div class="flex justify-center items-center flex-col fragment" data-fragment-index="2">
+              <img src="./assets/document_crypt.png" />
+              <small>Dokumenten Chiffrat</small>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex">
+            <div class="flex justify-center items-center flex-col">
+              <img src="./assets/meta_document.png" />
+              <small>Meta Daten</small>
+            </div>
+            <div class="fragment flex justify-center items-center flex-col" data-fragment-index="1">
+              <img src="./assets/kontextschluessel.png" />
+              <small>aktenspezifischer symmetrischer kontextschlüssel</small>
+            </div>
+            <div class="flex justify-center items-center flex-col fragment" data-fragment-index="2">
+              <img src="./assets/meta_document_crypt.png" />
+              <small>Meta Dokumenten Chiffrat</small>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex">
+            <div class="flex justify-center items-center flex-col">
+              <img src="./assets/policy_document.png" />
+              <small>Policy-Dokumente</small>
+            </div>
+            <div class="fragment flex justify-center items-center flex-col" data-fragment-index="1">
+              <img src="./assets/kontextschluessel.png" />
+              <small>aktenspezifischer symmetrischer Kontextschlüssel</small>
+            </div>
+            <div class="flex justify-center items-center flex-col fragment" data-fragment-index="2">
+              <img src="./assets/policy_document_scypt.png" />
+              <small>Policy Dokumenten Chiffrat</small>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/dokuemntenschluessel.png" />
+            <small>dokumentenindividueller symmetrischer Dokumentenschlüssel</small>
+          </div>
+          <div class="fragment flex justify-center items-center flex-col" data-fragment-index="1">
+            <img src="./assets/aktenschluessel.png" />
+            <small>aktenspezifischer symmetrischer Aktenschlüssel</small>
+          </div>
+          <div class="fragment flex justify-center items-center flex-col" data-fragment-index="2">
+            <img src="./assets/dokuemntenschluessel_crypt.png" />
+            <small>Dokuemntenschlüssel Chiffrat</small>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="flex justify-center items-center flex-col fragment w-full h-full absolute" data-fragment-index="1">
+            <img src="./assets/aktensystem.png" class="w-8/12" />
+            <small>Aktensystem</small>
+          </div>
+
+          <div class="flex" style="transform: scale(0.5);">
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/document_crypt.png" />
+            <img src="./assets/dokuemntenschluessel_crypt.png" />
+          </div>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/document_crypt.png" />
+            <img src="./assets/dokuemntenschluessel_crypt.png" />
+          </div>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/meta_document_crypt.png" />
+            <small>Meta Dokumenten Chiffrat</small>
+          </div>
+
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/policy_document_scypt.png" />
+            <small>Policy Dokumenten Chiffrat</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+          <img src="./assets/crypt_docs.png"/>
+        </section>
+
+        <section class="bg-grid">
+          <h2>Aktenweite Schlüssel</h2>
+        </section>
+
+        <section>
+          <h3>Aktenweite Schlüssel</h3>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/aktenschluessel.png" />
+            <small>aktenspezifischer symmetrischer Aktenschlüssel</small>
+          </div>
+          <div class="flex justify-center items-center flex-col">
+            <img src="./assets/kontextschluessel.png" />
+            <small>aktenspezifischer symmetrischer Kontextschlüssel</small>
+          </div>
+        </section>
+
+        <section>
+
+          <div class="flex justify-center relative h-96">
+            <div class="border-4 border-solid border-white bg-slate-300 w-8/12 h-80 absolute fragment" data-fragment-index="2">
+              <img src="./assets/authorisierungsschlüssel2.png" class="absolute top-[-3rem] right-[-2rem] w-24" />
+            </div>
+            <div class="border-4 border-solid border-white bg-slate-600 w-6/12 h-48 mt-16 absolute fragment" data-fragment-index="1">
+              <img src="./assets/authorisierungsschlüssel1.png" class="absolute top-[-3rem] right-[-2rem] w-24" />
+            </div>
+            <div class="flex justify-center mt-24 absolute">
+              <img src="./assets/aktenschluessel.png" />
+              <img src="./assets/kontextschluessel.png" class="!ml-4" />
+            </div>
+            
+          </div>
+          <small><ul>
+            <li>clientseitig zweifach verschlüsselte Chiffrat im "Zwiebelschalenprinzip" mittels AES-GCM</li>
+            <li>mit Autorisierungsschlüssel 1 und 2</li>
+          </ul></small>
+          <small></small>
+        </section>
+
+        <section>
+          <h3>Schlüsselgenerierungsdienst 1 & 2</h3>
+
+          <ul>
+            <li>generiert AES-256-Bit-Schlüssel für eine Entität</li>
+            <li>Die zwei SGD sind technisch, organisatorisch und wirtschaftlich unabhängig voneinander</li>
+            <li>Schlüsselableitung auf Grundlage von geheimen SGD-spezifischen Ableitungsschlüsseln (Masterkeys) und Ableitungsvektoren </li>
+            <li>Deterministisch</li>
+          </ul>
+
+          <div class="border-4 border-solid border-white">
+            AES-256(SHA-256(Vector),Masterkeys)
+          </div>
+
+        </section>
+
+        <section>
+          <h3>Ablauf erstmalige Generierung</h3>
+
+          <div class="border-4 border-solid border-white text-center text-3xl">
+            Request:<br/>r1:[KVNR]
+          </div>
+
+          <div class="flex justify-center fragment" data-fragment-index="1">
+            <img src="./assets/arrow_down.png" class="!w-10" />
+          </div>
+
+          <div class="border-4 border-solid border-white text-center text-3xl bg-slate-600 fragment" data-fragment-index="1">
+            SEED = [256-Bit-RND-in-Hexform];<br/>
+            VEKTOR = r1:[SEED]:[KVNR]:[NAME_OF_CURRENT_MASTERKEY]<br/>
+            KEY =  AES-256(SHA-256(VEKTOR),MASTERKEY)
+          </div>
+
+          <div class="flex justify-center fragment" data-fragment-index="2">
+              <img src="./assets/arrow_down.png" class="!w-10" />
+          </div>
+
+          <div class="border-4 border-solid border-white text-center text-3xl fragment" data-fragment-index="2">
+            Response:<br/>AES-256-Bit-Schlüssel-in-Hexform und Vektor
+          </div>
+
+        </section>
+
+
+        <section>
+          <div class="flex justify-center">
+            <img src="./assets/einlagerung_chluessel.png" />
+          </div>
+        </section>
+
+
+        <section>
+          <h3>Ablauf zukünftige Ableitung</h3>
+
+          <div class="border-4 border-solid border-white text-center text-3xl">
+            Request:<br/>r1:[SEED]:[KVNR]:[NAME_OF_CURRENT_MASTERKEY]
+          </div>
+
+          <div class="flex justify-center">
+            <img src="./assets/arrow_down.png" class="!w-10" />
+        </div>
+
+          <div class="border-4 border-solid border-white text-center text-3xl bg-slate-600">
+            KEY =  AES-256(SHA-256(VEKTOR),MASTERKEY)
+          </div>
+
+          <div class="flex justify-center">
+              <img src="./assets/arrow_down.png" class="!w-10" />
+          </div>
+
+          <div class="border-4 border-solid border-white text-center text-3xl">
+            Response:<br/>AES-256-Bit-Schlüssel-in-Hexform und Vektor
+          </div>
+
+        </section>
+
+        <section>
+          <h3>Freitabe für Leistungserbringer</h3>
+          <div class="border-4 border-solid border-white text-center text-3xl mb-4">
+            Vektor: r1:[SEED]:[KVNR]:[Telematik-ID]:[NAME_OF_CURRENT_MASTERKEY]
+          </div>
+
+          <ul>
+            <li>
+              Authorierierungsschlüssel 1 & 2  für Berechrigen an SGDs anfragen
+            </li>
+            <li>
+              Akten- und Kontextschlüssel für Berechrigten verschlüsseln
+            </li>
+            <li>
+              Chiffrat und Abletungsvektoren in "Komponente Autorisierung" ablegen
+            </li>
+          </ul>
+           
+
+        </section>
+
+        <section class="bg-grid">
+          Abruf Abruf
+        </section>
+
+        <section>
+          <div class="flex justify-center">
+            <img src="./assets/schluessel_decrypt.png" />
+          </div>
+        </section>
+
+        <section>
+          <div class="flex justify-center">
+            <img src="./assets/akte_decrypt.png" class="!max-h-[650px]" />
+          </div>
+        </section>
+
+        <section>
+          <h3> Vertrauenswürdige Ausführungsumgebung - VAU</h3> 
+          <ul>
+            <li>
+              Geschütze Nutzer-Session individuelle, nicht einsehbare umgebung im Aktensystem
+            </li>
+            <li>
+              Nutzer überträgt über verschlüsselten und authentisierten Datenkanal Kontextschlüssel in diese
+            </li>
+            <li>
+              in VAU werden Kontext informationen entschlüsselt, zum Beispiel für Suche
+            </li>
+          </ul>
+
+        </section>
+
+        <section>
+          <h3>Umschlüsselung</h3>
+          
+          <ul>
+            <li>Dabei werden Akten- und Kontextschlüssel ausgetausch</li>
+            <li>Muss clientseitig passieren</li>
+            <li>Alle Dokumentenschlüssel werden mit alten Schlüssel entschlüsselt und mit neuen Aktenschlüssel wieder verschlüsselt</li>
+            <li>Dokumente Dokumentenschlüssel bleiben gleich</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Fazit</h3>
+          <ul>
+            <li>keine Daten an den Komponenten im Klartext gespeichert</li>
+            <li>Aktenschlüssel liegt nur im im Client und nur temporär im Klartext vor</li>
+            <li>Aufteilung des Schlüsselmaterials gegen Missbrauch</li>
+          </ul>
+        </section>
+
+        <section class="bg-title">
+          <div class="flex">
+            <div>
+              <img src="./assets/freddy.png" />
+            </div>
+            <div>
+              <h1>Thanks</h1>
+              <a href="https://falk-m.de">falk-m.de</a><br/>
+              <a href="?print-pdf">print view</a>
+            </div>
+          </div>
+         
+        </section>
+      </div>
+    </div>
+
+    <script src="./revealjs/dist/revealjs.js"></script>
+
+    <script type="module">
+      Reveal.configure({ pdfMaxPagesPerSlide: 1 });
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: "slide",
+        backgroundTransition: "slide",
+        pdfSeparateFragments: false,
+        mouseWheel: true,
+        //slideNumber: 'c/t',
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+
+    </script>
+  </body>
+</html>

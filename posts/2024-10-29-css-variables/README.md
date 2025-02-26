@@ -10,8 +10,8 @@ A Example:
 
 ![list of buttons](buttons.png)
 
-There is a default button with a icon and a text inside.    
-the button is blue by default with black text color and black icon.
+There is a default button with an icon and a text inside.    
+The button is blue by default with black text color and black icon.
 
 ```css
 :root {
@@ -36,9 +36,9 @@ the button is blue by default with black text color and black icon.
 }
 ```
 
-then we need a yellow info button and a red alert button with white text.
+Then we need a yellow info button and a red alert button with white text.
 
-Often, I repeate css selectors for diffrent states and override the properties: 
+Often, I repeat CSS selectors for different states and override the properties: 
 
 ```css
 .button--alert {
@@ -60,8 +60,8 @@ Often, I repeate css selectors for diffrent states and override the properties:
 }
 ```
 
-a better way is only to override variables.
-the benefit is that you only set the variables for the parent element and all child elements can also use this override values.
+A better way is only to override variables.
+The benefit is that you only set the variables for the parent element and all child elements can also use this override values.
 
 ```css
 :root {
@@ -89,9 +89,9 @@ the benefit is that you only set the variables for the parent element and all ch
 }
 ```
 
-Here we use 'private' css variables.
-That means that the cariable is not global defined und only use in the scope of the element and his children.
-To tag the css variable as 'private' use a underscore (like old javascript style to mark private vars)
+Here we use 'private' CSS variables.
+That means that the variable is not global defined and only use in the scope of the element and his children.
+To tag the CSS variable as 'private' use an underscore (like old JavaScript style to mark private vars)
 
 For the other buttons we only override the default values with the public properties:
 ```css
@@ -107,4 +107,4 @@ For the other buttons we only override the default values with the public proper
 
 ## Links
 
-- [youtube | Using CSS custom properties like this is a waste](https://www.youtube.com/watch?v=_2LwjfYc1x8)
+- [YouTube | Using CSS custom properties like this is a waste](https://www.youtube.com/watch?v=_2LwjfYc1x8)

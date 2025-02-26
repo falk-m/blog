@@ -6,20 +6,20 @@ taxonomy:
 date: '2024-01-29'
 ---
 
-In an [earlier post](../04-smime-mail-encyption/README.md), I dircript how you can sent a s/mime encrypted mail.
+In an [earlier post](../04-smime-mail-encyption/README.md), I describe how you can send an s/mime encrypted mail.
 If you want to send encrypted mail, you need the public certificate from the recipient's email address.
-One way to recive this is, that the recipient sent a signed mail to you.
-The signature include the public certificate.
+One way to receive this is, that the recipient sent a signed mail to you.
+The signature includes the public certificate.
 
 ## 1. store email
 
-Store the email in your mail client als eml file.
+Store the email in your mail client as an eml file.
 You can also forward the email to yourself as an attachment file.
 Attached emails are also in eml format.
 
-## 2. extract Signamture.
+## 2. extract Signature.
 
-the eml file includes a p7s part.
+The eml file includes a p7s part.
 
 ```
 ------=_NextPart_000_0000_01DA529E.150CC600
@@ -36,7 +36,7 @@ ggOioAMCAQICCQC7QBxD9V5PsDANBgkqhkiG9w0BAQUFADBFMQswCQYDVQQGEwJDSDEVMBMGA1UE
 
 You can use mpack (```sudo apt-get install mpack```) to extract all parts from the eml file.
 
-After executeing ```munpack mail.eml```, you have a separate 'smime.p7s' file 
+After executing ```munpack mail.eml```, you have a separate 'smime.p7s' file 
 
 
 ## 3. extract certificate

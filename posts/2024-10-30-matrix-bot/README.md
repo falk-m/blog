@@ -6,13 +6,13 @@ taxonomy:
 date: '2024-10-30'
 ---
 
-I consider to write a bot for listing all new messages from a specific matric room.
+I consider writing a bot for listing all new messages from a specific matrix room.
 
-## get access token
+## Get access token
 
 [Link to documentation](https://matrix.org/docs/older/client-server-api/)
 
-List login methods og the matrix server:
+List login methods of the matrix server:
 
 ```bash
 curl -XGET "https://matrix.eigenbaukombinat.de/_matrix/client/r0/login"
@@ -29,7 +29,7 @@ Response:
 }
 ```
 
-if "m.login.password" is inlcuded, then request a access token.
+If "m.login.password" is included, then request an access token.
 
 ```bash
 curl -XPOST "https://matrix.eigenbaukombinat.de/_matrix/client/r0/login" \
@@ -52,7 +52,7 @@ Response:
 
 [Link to documentation](https://spec.matrix.org/legacy/client_server/r0.2.0.html#get-matrix-client-r0-publicrooms)
 
-to recive the room id I use the endpoint so list the public rooms of the server.
+To receive the room ID I use the endpoint so list the public rooms of the server.
 
 ```bash
 curl -XGET "https://matrix.eigenbaukombinat.de/_matrix/client/r0/publicRooms?access_token=token_token_token"
@@ -123,7 +123,7 @@ Response:
     {
       "type": "m.room.message",
       "room_id": "!DRJjBzEuQGkqJhhETA:matrix.eigenbaukombinat.de",
-      "sender": "@uly55e5:matrix.eigenbaukombinat.de",
+      "sender": "@xxx:matrix.eigenbaukombinat.de",
       "content": {
         "msgtype": "m.text",
         "body": "Am Freitag, dem 18. Oktober 2024, findet ab ca. 19 Uhr der n\\u00e4chste Koch- und Kennenlernabend statt. Wir werden wieder gemeinsam kochen,, und wie traditionell im Oktober, machen wir irgendwas mit K\\u00fcrbis. Wenn ihr teilnehmen, etwas mitbringen oder Rezeptideen einbringen wollt, dann tragt Euch bitte bis Donnerstag im Pad ein: https://pads.eigenbaukombinat.de/SoPv9f96S_SD-0v0Lg62Kw?both#",
@@ -135,13 +135,13 @@ Response:
         "membership": "join",
         "age": 1280945657
       },
-      "user_id": "@uly55e5:matrix.eigenbaukombinat.de",
+      "user_id": "@xxx:matrix.eigenbaukombinat.de",
       "age": 1280945657
     },
     {
       "type": "m.room.message",
       "room_id": "!LDygbFxIVtzvvzbIpf:matrix.eigenbaukombinat.de",
-      "sender": "@jotilux:matrix.eigenbaukombinat.de",
+      "sender": "@xxx:matrix.eigenbaukombinat.de",
       "content": {
         "msgtype": "m.text",
         "body": "@room Anmeldung f\\u00fcr Blenderkurs 2024 er\\u00f6ffnet:\nhttps://eigenbaukombinat.de/kurs-blender-2024/"
@@ -152,7 +152,7 @@ Response:
         "age": 75229291
       },
       "event_id": "$LkcZ0F8sJHlxLIHSkRZz1nqR9llQQ-4a1ezjJ8A5xF8",
-      "user_id": "@jotilux:matrix.eigenbaukombinat.de",
+      "user_id": "@xxx:matrix.eigenbaukombinat.de",
       "age": 75229291
     },
   ],

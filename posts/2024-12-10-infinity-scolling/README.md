@@ -7,9 +7,9 @@ date: '2024-12-10'
 ---
 
 One topic at work last week was to automatic load more items in a list, when the user scroll to the end of the list.
-I want to decorate a classic serverside pagination with some javascript to solve this.
+I want to decorate a classic server-side pagination with some JavaScript to solve this.
 
-First I add a attrebute to the items list to mark them as the items container for seletion later.
+First I add an attribute to the container of the listed items for select them later in the JavaScript.
 
 ```html
 <div data-pagination="container">
@@ -21,7 +21,7 @@ First I add a attrebute to the items list to mark them as the items container fo
 </div>
 ```
 
-Then I add also a attrebute on the pagination container and on the link alement with the link for the next page.
+Then I add also an attribute on the pagination container and on the link element with the link for the next page.
 
 ```html
 <nav data-pagination="paginator">
@@ -33,7 +33,7 @@ Then I add also a attrebute on the pagination container and on the link alement 
 
 Now the funny part:-)
 
-In the js script, first declare variables for the items container, the pagination container and a variable to memoriece is the loading of the next page already in proces.
+In the JS script, first declare variables for the items-container, the pagination-container and a variable to memorize the is loading of the next page already in process.
 
 ```js
 let isLoading = false;
@@ -42,7 +42,7 @@ const paginator = document.querySelector('[data-pagination="paginator"]');
 const container = document.querySelector('[data-pagination="container"]');
 ```
 
-Then i declare a function to load the html content tring from a url.
+Then I declare a function to load the HTML content string from a URL.
 
 ```js
 const loadContent = function(url){
@@ -59,9 +59,9 @@ const loadContent = function(url){
 
 Then we need a function to 
 - replace the content of the pagination container with the new pagination content
-- append the items from the next page to to current items list
+- append the items from the next page to the current items list
 
-Here I use the DOMParser API to select parts of a html document from a string.
+Here I use the DOMParser API to select parts of a HTML document from a string.
 
 ```js
 const displayContent(constent){
@@ -75,8 +75,8 @@ const displayContent(constent){
 }
 ```
 
-To detect if the paginationcontainer scolled into the viewport, i want to use a IntersectionObserver.
-For the observer we net a callback function wich is called, when the observed element leave or enter the viewport.
+To detect if the pagination-container is scrolled into the viewport, I want to use a IntersectionObserver.
+For the observer we need a callback function which is called, when the observed element leave or enter the viewport.
 
 ```js
 const callback = async (entries, observer) => {
@@ -108,8 +108,8 @@ const callback = async (entries, observer) => {
 };
 ```
 
-Then start the intersection ovserver on the pagination element.
-The root margin option indicates, that the callback shoult be thrown 200px before the pagination element enter the viewport.
+Then start the intersection observer on the pagination element.
+The root margin option indicates, that the callback should be thrown 200px before the pagination element enter the viewport.
 
 ```js
 const options = {

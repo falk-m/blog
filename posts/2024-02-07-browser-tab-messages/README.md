@@ -6,7 +6,7 @@ taxonomy:
 date: '2024-02-08'
 ---
 
-in some cases, it is necessary to sync browser tabs or send a message to another tab.
+In some cases, it is necessary to sync browser tabs or send a message to another tab.
 For example: In one tab is a voice recorder and in the other is a list of recordings. When the record is finished, then the list should be refreshed.
 Another example could be after a login, other tabs should be informed.
 

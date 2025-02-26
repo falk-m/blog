@@ -30,4 +30,4 @@ protected function urlSafeBase64Decode(string $data)
     }
 ```
 
-Why do use the JSON_UNESCAPED_SLASHES option? Normally, "/" is escaped to "\\/". but instead of transmitting the raw JSON string, we encode them also base64. so we don't need the double encoding of the slash character.
+Why do use the JSON_UNESCAPED_SLASHES option? Normally, "/" is escaped to "\\/". But instead of transmitting the raw JSON string, we encode them also base64. So we don't need the double encoding of the slash character.

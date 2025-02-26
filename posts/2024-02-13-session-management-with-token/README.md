@@ -8,15 +8,15 @@ updated: '2024-10-18'
 ---
 
 This Post is not about OAuth.
-The inspected use case is the session management for an API after the authentification (after login).
-It is not about the authentification process, code flow, and so on.
+The inspected use case is the session management for an API after the authentication (after login).
+It is not about the authentication process, code flow, and so on.
 
 In a simple case, the API sets a session cookie after login:
 
 **Pros:**
-- the browser sends with each request the cookie to the API.
-- the browser deletes the session cookie when the user closes the browser.
-- client site scripts in the browser do not have access to the cookie content
+- The browser sends with each request the cookie to the API.
+- The browser deletes the session cookie when the user closes the browser.
+- Client site scripts in the browser do not have access to the cookie content
 
 **cons**
 - a client application in the browser can not the status of the session
@@ -28,10 +28,10 @@ In a simple case, the API sets a session cookie after login:
 **Access token**
 - is needed to access resources, e.g. to call an API
 - is a short-lived token. The token is 10 minutes valid.
-- it's a JWT. so the client has access to the data in the token (user name, ...) and can check the expiration date.
+- it's a JWT. So the client has access to the data in the token (username, ...) and can check the expiration date.
 
 **login**
-- after successfully authentification (username/password, two-factor, ... ) the server response
+- after successfully authentication (username/password, two-factor, ...) the server response
   - an access token
   - a refresh token
 

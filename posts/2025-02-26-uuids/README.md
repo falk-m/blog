@@ -6,14 +6,14 @@ taxonomy:
 date: '2025-02-26'
 ---
 
-In my next task at work, i have to import data from an api with uuds as primary key and relations between the data entities.    
-Shopware also use since version 6 uuids insted of integers as primary keys.    
-In this article i want to descripe best practices to handle uuids in mysql databases.
+In my next task at work, I have to import data from an API which use UUIDs as primary key and for relations between the data entities.    
+Shopware also use UUIDs since version 6 instead of integers as primary keys.    
+In this article I want to describe best practices, to handle UUIDs in MySQL databases.
 
-## whats it
+## What's it
 
-UUids are a (most randomly) 16 byte unique identifire.    
-A example 32 byte Char representation is: ```8fb12b2f-9183-456f-a50f-0b37720710c6```   
+UUIDs are a (most randomly) 16 byte unique identifier.    
+These 16 bytes mostly are represented as a 32 byte hex character string like this: ```8fb12b2f-9183-456f-a50f-0b37720710c6```   
 
 The simplest way to generate one:
 
@@ -28,33 +28,34 @@ function uuidv4()
   return $data;
 }
 ```
-In the example you see, that some random bits are replaced with a uuid version information.
-For more informations about uuds check the links below this article.
 
-## Why UUIds
+In the example you see, that some random bits are replaced with a UUID version information.
+For more information about UUIDs check the links below this article.
+
+## Why UUIDs
    
-Unlike continuous numbers, uuids are not enumerable.    
-So you can use the uuid in urls without give the user informations about the quantity of data rows in the system or the posibility to manipulate the url to  guess the next data row.
+Unlike continuous numbers, UUIDs are not enumerable.    
+So you can use the UUID in URLs without give the user information about the quantity of data rows in the system or the possibility to manipulate the URL to guess the next data row.
 
-UUids are practicly collision free. Means a generated uuid is globally unique. 
-For example, the space of V4 uudis is 2^122 = 5,3169 × 10^36.
+UUIDs are practically collision free. Means a generated UUID is globally unique. 
+For example, the space of V4 UUIDs is 2^122 = 5,3169 × 10^36.
 In words: "Only after generating 1 billion UUIDs every second for the next 100 years, the probability of creating just one duplicate would be about 50%"
 
 
-## bretty print
+## Pretty print
 
-UUids consists are 16 byte (128 bit).
+UUIDs consists are 16 byte (128 bit).
 
-with the funtion ```$hex = bin2hex($binary)``` you can converte the binary data to a hex stringm like '8fb12b2f9183456fa50f0b37720710c6'.    
-convert this hex representation to binary use ```$binary = hex2bin($hex)```
+The function ```$hex = bin2hex($binary)``` convert the binary data to a hex string like '8fb12b2f9183456fa50f0b37720710c6'.    
+Convert these hex representation back to binary use ```$binary = hex2bin($hex)```.
 
-Often they used seperated in groups.    
-The php code ```$str = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($binary), 4));``` convert the binary data to strings like '8fb12b2f-9183-456f-a50f-0b37720710c6'.    
-To revert the UUD to the binary representation ```$binary =  hex2bin(str_replace("-", "", $str))```
+Often these hex characters are separated in groups.    
+The PHP code ```$str = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($binary), 4));``` convert the binary data to strings like '8fb12b2f-9183-456f-a50f-0b37720710c6'.    
+To revert the UUID to the binary representation use ```$binary =  hex2bin(str_replace("-", "", $str))```.
 
-## create a table
+## Create a table
 
-Best practice so store uuids is a field with the ```BINARY(16)``` data type.
+Best practice so store UUIDs is a field with the ```BINARY(16)``` data type.
 
 ```sql
 CREATE TABLE users (
@@ -63,7 +64,7 @@ CREATE TABLE users (
 );
 ```
 
-digression: Shopware use the utf8mb4_unicode_ci collaction. its only a random fact. not committed to the uuid topic:)
+Digression: Shopware uses the "utf8mb4_unicode_ci" collection. It's only a random fact, not committed to the UUID topic:)
 
 ```sql
 CREATE TABLE XXX (
@@ -74,9 +75,9 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 ## insert row
 
-You can use build in mysql features, like ```INSERT INTO my_table (uuid_column) VALUES (UUID_TO_BIN(UUID()))```.
+You can use built-in MySQL features, like ```INSERT INTO my_table (uuid_column) VALUES (UUID_TO_BIN(UUID()))```.
 
-Its also possible to genrate random bytes and insert them:
+It's also possible to generate random bytes and insert them:
 ```php
 $db = new PDO("mysql:dbname=db;host=mysql", "db_user", "dp_password");
 
@@ -88,12 +89,12 @@ $data = [
 $db->prepare($sql)->execute($data);
 ```
 
-in this example i use the php build-in function ```random_bytes(16)``` to generate the random bytes for the key.
+In this example I use the PHP built-in function ```random_bytes(16)``` to generate the random bytes for the key.
 
-## select row
+## Select rows
 
-When you query the date from the db and want to display the bytes from the key, then you can use the php function ```bin2hex```.    
-This function convert the 16byte binary data into a human readable 32 character string.
+When you query the date from the db and want to display the bytes from the key, then you can use the PHP function ```bin2hex```.    
+This function convert the 16byte binary data into a human-readable 32 character string.
 
 ```php
 $db = new PDO("mysql:dbname=db;host=mysql", "db_user", "dp_password");
@@ -109,22 +110,22 @@ while ($row = $stmt->fetch()) {
 }
 ```
 
-## uuid V7
+## UUID V7
 
-There is still the problem that InnoDB stores data in the primary key order. Completly random uuids results in fragmentation and can slow down index traversal and degrade query performance.
+There is still the problem that InnoDB stores data in the primary key order. Completely random UUIDs results in fragmentation and can slow down index traversal and degrade query performance.
 
-In the [shopware sourcecode](https://github.com/shopware/shopware/blob/d9391e13ac343f1164b3543f508541dec1682657/src/Core/Framework/Uuid/Uuid.php#L47) I found the information that shopware use the V7 version of uuids.
-V7 UUID using a timestamp, a counter and a cryptographically strong random number to geneate uuids.   
+In the [Shopware source code](https://github.com/shopware/shopware/blob/d9391e13ac343f1164b3543f508541dec1682657/src/Core/Framework/Uuid/Uuid.php#L47) I found the information that Shopware use the V7 version of UUIDs.
+V7 UUID using a timestamp, a counter and a cryptographically strong random number to generate UUIDs.   
 It generates bytes that combine a 48-bit timestamp in milliseconds since the Unix Epoch with 80 random bits.
-That solves the problems of scattered database records and make the uuids sortable in a meaningful way (i.e., insert order)
+That solves the problems of scattered database records and make the UUIDs sortable in a meaningful way (i.e., insert order)
 
-See a full empamle in the [souce code here](https://github.com/falk-m/blog/tree/master/posts/2025-02-26-uuids).
+See a full example in the [source code here](https://github.com/falk-m/blog/tree/master/posts/2025-02-26-uuids).
 
-## optimization
+## Optimization
 
-[pingcap](https://www.pingcap.com/article/mastering-uuid-storage-in-mysql/) descript in their article diffrent ways to performance improvements.
+[Pingcap](https://www.pingcap.com/article/mastering-uuid-storage-in-mysql/) describe in their article different ways to performance improvements.
 
-- clustered indexes ```CREATE TABLE my_table (  uuid_column BINARY(16) PRIMARY KEY CLUSTERED,  ...)```
+- Clustered indexes ```CREATE TABLE my_table (  uuid_column BINARY(16) PRIMARY KEY CLUSTERED,  ...)```
 - Prefix Indexing ```CREATE INDEX idx_prefix ON my_table (uuid_column(8))```
 - Partitioning ```CREATE TABLE my_table (  uuid_column BINARY(16),  ...) PARTITION BY HASH(uuid_column)```
 

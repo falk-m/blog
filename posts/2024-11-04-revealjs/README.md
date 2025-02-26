@@ -9,17 +9,17 @@ date: '2024-11-04'
 
 ## reveal js
 
-I want to cerate a presentation template for my own.    
-Reval js is a nice tool with many features (code highlighting, print view vor pfg export, process bar, ...).
+I want to create a presentation template for my own.    
+Reval js is a nice tool with many features (code highlighting, print view for PDF export, process bar, ...).
 
-For my template, I want to seperate slides in diffrent files, but without compiling the source code, when i add new slides.
+For my template, I want to separate slides into different files, but without compiling the source code, when I add new slides.
 
 
-## ES moduels
+## ES modules
 
-We should use more often the browsers es-modules feature to load javascript.
+We should use more often the browsers es-modules feature to load JavaScript.
 
-You can mark content in js Files as for export:
+You can mark content in JS Files as for export:
 ```js
 //demo.js
 
@@ -28,7 +28,7 @@ export default function () {
 }
 ```
 
-Then you can access the content from script blocks or in other js files
+Then you can access the content from script blocks or in other JS files
 ```html
     <script type="module">
       import things from "./demo.js"
@@ -39,10 +39,10 @@ Then you can access the content from script blocks or in other js files
 
 ## preact
 
-Preact is a great project with the same api like react, but with a smaller footprint.
+Preact is a great project with the same API as react, but with a smaller footprint.
 And it could be used without compiling step.
 
-each slide is in a seperate preact component.
+Each slide is in a separate preact component.
 
 ```js
 //slide/intro.js
@@ -57,7 +57,7 @@ export default function () {
 }
 ```
 
-in a summery file are oll slides in the right order included:
+In a summery file are all slides in the right order included:
 
 ```js
 //slides.js

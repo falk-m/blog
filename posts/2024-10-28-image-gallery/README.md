@@ -8,7 +8,7 @@ date: '2024-10-28'
 
 Today I saw a nice responsive image gallery.
 
-![preview](preview.png)
+![Preview](preview.png)
 
 ```css
             .gallery {
@@ -43,8 +43,8 @@ Today I saw a nice responsive image gallery.
             }
 ```
 
-In details u see that it use a aspect-ratio in combination with 'object-fit: cover':/    
-It only a suitable solution if your images have a equal ratio or its okay for you only see a part of the image.    
+In details u see that it use an aspect-ratio in combination with 'object-fit: cover':/    
+It only a suitable solution if your images have an equal ratio, or it's okay for you only see a part of the image.    
 [Here is the full example](index.html)
 
 

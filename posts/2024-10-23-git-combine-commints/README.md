@@ -6,7 +6,7 @@ taxonomy:
 date: '2024-10-23'
 ---
 
-In some caseses there is a feature branch with many many commits and you want to replace all this small commits with one big commit.
+In some cases there is a feature branch with many commits and you want to replace all this small commits with one big commit.
 
 **1. check if everithing is committed.**
 
@@ -16,7 +16,7 @@ You have to have no local changes.
 
 ```git reset --soft HEAD~2```
 
-This remove the last 2 commits and make the changes in xýou local envirement 'uncommitted'.
+This remove the last 2 commits and make the changes in ýour local environment 'uncommitted'.
 
 **3. create a new commit** 
 

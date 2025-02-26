@@ -7,15 +7,15 @@ date: '2024-10-22'
 ---
 
 One of my topics today was git workflows.    
-I read something about tig flow and the github flow.
+I read something about git flow and the github flow.
 
-In the past I always worl with a develop and a master brunch.
-After I read about github flow, i wonddering why i always use develop branches:-)
+In the past I always work with a develop and a master brunch.
+After I read about github flow, I was wondering why I always use develop branches:-)
 
-For my customers workflow, i decide to use github flow with release branches.
-With release brunches it is posible to ship single features from develop branch to the release branch,
+For my customers workflow, I decide to use github flow with release branches.
+With release brunches it is possible to ship single features from develop branch to the release branch,
 without the need to create a new release.
-I know that this is a little bit dirty, but the customer have little features sometimes, wich he wants to have on the production system without a new release of all other features they are already developed and merged. So i can cherrypick this comments to the actual release.
+I know that this is a little dirty, but the customer have little features sometimes, which he wants to have on the production system without a new release of all other features they are already developed and merged. So I can cherrypick this comments to the actual release.
 
 <pre>
 Feature  x__x               x     x
@@ -27,12 +27,12 @@ Hotfix           \    x        \       \
 Release            x----x--------x       x
 </pre>
 
-## helpful git commands
+## Helpful git commands
 
-pick a single commit from a other branch and execute them on the current branch    
+pick a single commit from another branch and execute them on the current branch    
 ```git cherrypick [commit-id]```
 
-set branch poiter to a specific commit.    
+Set branch pointer to a specific commit.    
 ```git branch -f <branchname> <commit-id>```
 
 ## Links

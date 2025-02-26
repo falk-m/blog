@@ -8,7 +8,7 @@ date: '2024-11-02'
 
 ## useRef
 
-Sometimes is see that someone use useRef in situations i would use 'useState'.
+Sometimes I saw that someone use useRef in situations I would use 'useState'.
 
 ```js
 const blocking = React.useRef(false);
@@ -21,14 +21,14 @@ const onScroll = () => {
     };
 ```
 
-One of the main diffrence is that changing the value of a ref don't trigger a re-rendering.
+One of the main difference is that changing the value of a ref don't trigger a re-rendering.
 
 - [useRef api reference](https://react.dev/reference/react/useRef)
 - [useState api reference](https://react.dev/reference/react/useState)
 
 ## custom hooks
 
- Robin Wieruch write create articels to create and usage of custom hooks.
+ Robin Wieruch write create articles to create and usage of custom hooks.
 
 - [React: How to create a Custom Hook](https://www.robinwieruch.de/react-custom-hook/)
 - [React Hook: Check if Overflow](https://www.robinwieruch.de/react-custom-hook-check-if-overflow/)
@@ -37,4 +37,4 @@ One of the main diffrence is that changing the value of a ref don't trigger a re
 ## state and context
 
 - [How to useContext in React](https://robinwieruch.de/react-usecontext-hook/)
-- [Zustand](https://github.com/pmndrs/zustand): react light global state managment alternative to redux
+- [Zustand](https://github.com/pmndrs/zustand): react light global state management alternative to redux

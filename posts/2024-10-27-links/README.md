@@ -16,10 +16,10 @@ date: '2024-10-27'
 ## Links
 
 - [intl api](https://rafaelcamargo.com/blog/mastering-date-formatting-using-intl-date-time-format-in-javascript/): formatting dates in native javascript
-- [htmlrev](https://htmlrev.com/): html templates ans inspirations
+- [htmlrev](https://htmlrev.com/): HTML templates and inspirations
 - [design spells](https://www.designspells.com/): design details and inspirations
-- [activepieces](https://github.com/activepieces/activepieces) and [n8n](https://n8n.io/): design worklows and automatisazion
-- [musicforprogramming.net](https://musicforprogramming.net/sixtysix/): background noice for work
+- [activepieces](https://github.com/activepieces/activepieces) and [n8n](https://n8n.io/): design workflows and automatization
+- [musicforprogramming.net](https://musicforprogramming.net/sixtysix/): background noise for work
 - [openfreemap](https://openfreemap.org/): custom maps, open source
 - [cll loading animations/spinner](https://whirl.netlify.app/)
 

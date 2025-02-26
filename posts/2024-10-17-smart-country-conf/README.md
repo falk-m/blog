@@ -6,22 +6,22 @@ taxonomy:
 date: '2024-10-17'
 ---
 
-This year, i visited the smart country conference in Berlin.    
-Its a fair, where the main topic is the digitalization of the german coverment.    
+This year, I visited the smart country conference in Berlin.    
+It's a fair, where the main topic is the digitalization of the German government.    
 
-My focus was the usage of open source and web technolgie in this area.
+My focus was the usage of open source and web technologies in this area.
 
-First intesting thing was the existance of a "Government Site Builder" based on Type3.    
+First interesting thing was the existence of a "Government Site Builder" based on Type3.    
 [produkt.gsb.bund.de/gsb11](https://produkt.gsb.bund.de/gsb11).
 
-Then I saw demonstrations op openDesk.    
+Then I saw demonstrations of openDesk.    
 [opendesk.eu](https://opendesk.eu/).    
-Its a open source alternativ to microfot office suite.    
+It's an open source alternative to Microsoft Office suite.    
 I saw a web based mail client and same office applications.
 
 Nextcloud seems to be also a big thing for local government.    
 [nextcloud.com](https://nextcloud.com/)
 
-And i don't know that there a a accessibile web commponents library, supported and developt by the german coverment.    
+And I don't know that there an accessible web components library, supported and developed by the German government.    
 [github.com/public-ui](https://github.com/public-ui)    
 [Documentation and components list](https://public-ui.github.io/en/docs/components)

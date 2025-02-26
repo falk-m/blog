@@ -13,10 +13,10 @@ date: '2024-10-18'
 
 ## inline-flex
 
-I read in a other blox ```display: inline-flex``` and never heared about it before.    
-[This codepen](https://codepen.io/clairecodes/pen/POjKXY) discripe the diffrence in compareison to ```display: flex```
+I read in another blog ```display: inline-flex``` and never heard about it before.    
+[This codepen](https://codepen.io/clairecodes/pen/POjKXY) discripe the difference in comparison to ```display: flex```
 
-## inert Attrebute
+## inert Attribute
 
-The [intent attrebute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert) should do the same effect like the css code ```display: contents```.
+The [intent attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert) should do the same effect like the css code ```display: contents```.
 It replaced the box with its child elements.

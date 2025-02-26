@@ -24,11 +24,11 @@ date: '2024-11-03'
 - [tiny and smart css reset](https://www.joshwcomeau.com/css/custom-css-reset/)
 - [persisting react state in localstorage](https://www.joshwcomeau.com/react/persisting-react-state-in-localstorage/)
 - [material Ui web components library](https://github.com/material-components/material-web)
-- [cobalt](https://cobalt.tools/): download music and videos from websites, like youtube
+- [cobalt](https://cobalt.tools/): download music and videos from websites, like YouTube
 - [rsuitejs](https://rsuitejs.com/): a large react components library
 - [media-chrome](https://github.com/muxinc/media-chrome) a nice audio and video player as web component
-- [frontend-mini-challenges](https://github.com/sadanandpai/frontend-mini-challenges/tree/main/apps/): nice solutions for mini frontend challenges like password check, image gallery pagination, ... availiable for react, agular., vue or plain js
+- [frontend-mini-challenges](https://github.com/sadanandpai/frontend-mini-challenges/tree/main/apps/): nice solutions for mini frontend challenges like password check, image gallery pagination, ... available for react, agular., vue or plain js
 - [baseline-status](https://github.com/web-platform-dx/baseline-status): web component to display status of web features
-- [plausible](https://plausible.io/): self host analytics tool
+- [plausible](https://plausible.io/): self-host analytics tool
 - [composer-merge-plugin](https://github.com/wikimedia/composer-merge-plugin): Merge multiple composer.json files at Composer runtime.
 

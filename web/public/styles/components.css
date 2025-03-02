@@ -120,3 +120,16 @@ hr {
 .language-bash {
   text-wrap: pretty;
 }
+
+.c-detail-content > table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid;
+  margin-bottom: 1em;
+} 
+
+.c-detail-content > table {
+  th, td {
+    border: 1px solid;
+  }
+} 

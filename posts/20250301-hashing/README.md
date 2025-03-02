@@ -61,16 +61,18 @@ XOR (^): return 1, when the input bits are not equal
 
 NOT (~): return 1, when the input is 0, and 0 when the input is 1
 
-| A | B | A & B | A \| B | A ^ B | ~A
+| A | B | A & B | A &#124; B | A ^ B | ~A
 |---|---|---|----|---|---|
 | 0 | 0 | 0 | 0  | 0 | 1 |
 | 1 | 0 | 0 | 1  | 1 | 0 |
 | 0 | 1 | 0 | 1  | 1 | 1 |
 | 1 | 1 | 1 | 1  | 0 | 0 |
 
+
 ADD (+): add to numbers
 
 Example 7 + 2 = 9
+
 | A | B | overhang | Result |
 |---|---|---|----|
 | 1 | 0 | 0 | 1 |

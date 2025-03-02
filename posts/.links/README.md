@@ -15,3 +15,4 @@ date: '2025-03-02'
 - [layoutsfortailwind](https://layoutsfortailwind.lalokalabs.dev/): Useful layouts for Tailwind CSS
 - [excellentexport](https://github.com/jmaister/excellentexport): Js export to excel
 - [dolanmiu/docx](https://github.com/dolanmiu/docx): create docx files with js
+- [react-libraries](https://www.robinwieruch.de/react-libraries/): useful links round about react

@@ -10,6 +10,8 @@
     <link href="<?php echo $baseUrl ?>/public/styles/layout.css" rel="stylesheet">
     <link href="<?php echo $baseUrl ?>/public/styles/components.css" rel="stylesheet">
     <link href="<?php echo $baseUrl ?>/public/highlightjs/styles/default.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="News, Snippets, Slides, ...." href="<?php echo $baseUrl ?>/feed.xml" />
 </head>
 
 <body>

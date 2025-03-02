@@ -22,3 +22,7 @@
 .l-mt-2 {
     margin-top: 2rem;
 }
+
+.inline-link {
+    text-decoration: underline;
+}

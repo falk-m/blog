@@ -7,10 +7,10 @@
     <div class="c-main__left">
         <h1 class="c_h1">Blog | falk-m.de</h1>
         <p class="l-mb-2">
-            This blog is not for you, not only.
             Like other developers, I read articles, test new features, analyze code from others and so on.
             Also, I have some interesting code snippets used in projects, if I need them, I always search in old projects.
-            This blog is my central place now, to collect interesting code snippets, features, etc.
+            This blog is my central place now, to collect interesting code snippets, features, etc. |
+            <a class="inline-link" href="<?php echo $baseUrl ?>/feed.xml">RSS Feed</a>
         </p>
 
         <div class="l-mb-2">

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fluid design demo</title>
+
+        <style>
+            .box {
+                border: 1px solid red;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>padding</h2>
+        
+        <div class="box" style="padding: 4rem;">
+            <code>
+                .p-1 {
+                    padding: 4rem;
+                }
+            </code>
+        </div>
+
+        <div  class="box" style="padding: min(4rem, 8vw)">
+            <code>
+                .p-1 {
+                    padding: min(4rem, 8vw)
+                }
+            </code>
+        </div>
+
+        <h2>font size</h2>
+
+        <style>
+            :root {
+                --1rem: 1rem;
+            }
+        </style>
+
+        <input type="range" min="1" max="3" step="1" value="1" onchange="document.querySelector(':root').style.setProperty('--1rem', this.value + 'rem');" />
+
+        <div style="font-size: var(--1rem); overflow: hidden;">
+
+            <div style="font-size: 6vw;">FLUID DESIGN DEMO HEADLINE</div>
+
+            <div style="font-size: clamp(2em, 6vw, 6em);">FLUID DESIGN DEMO HEADLINE</div>
+
+            <div style="font-size: clamp(2em, 4vw + 2em, 6em)">FLUID DESIGN DEMO HEADLINE</div>
+        </div>
+    </body
+</html>

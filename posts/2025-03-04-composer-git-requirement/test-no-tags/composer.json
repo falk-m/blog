@@ -1,0 +1,11 @@
+{
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/falk-m/lite-search"
+      }
+    ],
+    "require": {
+      "falk-m/lite-search": "dev-master"
+    }
+}

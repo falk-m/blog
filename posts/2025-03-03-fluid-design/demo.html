@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fluid design demo</title>
+
+        <style>
+            .box {
+                border: 1px solid red;
+                background-color: #ccc;
+            }
+
+            :root {
+                --1rem: 16px;
+            }
+
+            html {
+                font-size: var(--1rem);
+            }
+
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            code {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>font size</h2>
+
+        <input type="range" min="8" max="60" step="1" value="16" onchange="document.querySelector(':root').style.setProperty('--1rem', this.value + 'px');" />
+
+        <div style="overflow: hidden;">
+
+            <code>font-size: 6vw;</code>
+
+            <div style="font-size: 6vw;">FLUID DESIGN DEMO HEADLINE</div>
+
+            <code>font-size: clamp(2rem, 6vw, 6rem);</code>
+            <div style="font-size: clamp(2rem, 6vw, 6rem);">FLUID DESIGN DEMO HEADLINE</div>
+
+            <code>font-size: clamp(2rem, 4vw + 2rem, 6rem)</code>
+            <div style="font-size: clamp(2rem, 4vw + 2rem, 6rem)">FLUID DESIGN DEMO HEADLINE</div>
+        </div>
+
+        <hr/>
+
+        <h2>padding</h2>
+        
+        <div class="box" style="padding: 4rem;">
+            <code>
+                .p-1 {
+                    padding: 4rem;
+                }
+            </code>
+        </div>
+
+        <div  class="box" style="padding: min(4rem, 8vw)">
+            <code>
+                .p-1 {
+                    padding: min(4rem, 8vw)
+                }
+            </code>
+        </div>
+
+       
+   
+
+        <hr/>
+
+        <div class="container">
+
+            <div class="box-right">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </div>
+            <div class="box-left">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </div>
+            
+        </div>
+
+        <style>
+            .container {
+                margin-inline: auto;
+                width: min(90rem, 100% - 8vw);
+                background-color: aliceblue;
+
+                display: flex; 
+                flex-wrap: wrap;
+                gap: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+                padding: clamp(0.5rem, 0.1522rem + 1.7391vw, 1.5rem);
+            }
+
+            .box-right {
+                flex: 2; 
+                min-width: min(40rem, 100%);
+            }
+
+            .box-left {
+                flex: 1; 
+                min-width: min(20rem, 100%);
+            }
+        </style>
+
+    </body
+</html>

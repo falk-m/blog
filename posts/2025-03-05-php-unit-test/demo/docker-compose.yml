@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+
+  php:
+    build:
+      context: ./docker/php
+    hostname: localhost
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/:/var/www/html/

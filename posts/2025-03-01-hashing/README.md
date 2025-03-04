@@ -41,9 +41,16 @@ When you insert Harry Potter 2, the number is a completely other number, like 23
 - Checksums
   - build the hash of a file, called checksum: hash([very large file])
   - the receiver of the file can compare the checksum with the received file and detect if the file is corrupted or changed
-- Blockchains
+- Blockchains, like bitcoin
   - every block contains the hash from the previous block
   - nobody can change some past block without change all following blocks
+- Google authenticator
+  - user for 2FA (two-factor authentication)
+  - The authenticator app stored a shared secret, received over a qr code
+  - The service (e.g. a website) store the secret to.
+  - When the website required an auth code, the authenticator app calculate hash([current time] + [shared secret]) and produce a number representation
+  - the user enter the number on the website, the website do the same calculation and compare the numbers
+  - are they equal, the website is known, that the use have an authenticator app with the same shared secret   
 - ...
 
 ## Let's build a hash

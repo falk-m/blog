@@ -105,15 +105,43 @@
             }
 
             .box-right {
-                flex: 2; 
-                min-width: min(40rem, 100%);
+                flex-basis: 40rem; 
+                flex-grow: 2;
             }
 
             .box-left {
-                flex: 1; 
-                min-width: min(20rem, 100%);
+                flex-basis: 20rem; 
+                flex-grow: 1;
             }
         </style>
+
+        <hr/>
+
+        <h2>Grid</h2>
+
+        <style>
+            .auto-grid {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+
+                > * {
+                    background-color: aqua;
+                    padding: 1rem;
+                }
+            }
+        </style>
+
+        <div class="auto-grid">
+            <div>Children 1</div>
+            <div>Children 2</div>
+            <div>Children 3</div>
+            <div>Children 4</div>
+            <div>Children 5</div>
+            <div>Children 6</div>
+            <div>Children 7</div>
+            <div>Children 8</div>
+        </div>
 
     </body
 </html>

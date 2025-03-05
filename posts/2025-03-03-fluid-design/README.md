@@ -97,13 +97,32 @@ When one box is too small, the second box swap to an own row.
 }
 
 .box-right {
-    flex: 2; 
-    min-width: min(40rem, 100%);
+    flex-basis: 40rem; 
+    flex-grow: 2;
 }
 
 .box-left {
-    flex: 1; 
-    min-width: min(20rem, 100%);
+    flex-basis: 40rem; 
+    flex-grow: 1;
+}
+```
+
+## Grid
+
+A great example from Kevin Powell for a simple grid:
+
+```css
+ .auto-grid {
+    --min-column-size: 22rem;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-column-size), 100%), 1fr));
+
+    > * {
+        background-color: aqua;
+        padding: 1rem;
+    }
 }
 ```
 
@@ -112,3 +131,4 @@ When one box is too small, the second box swap to an own row.
 - [Demo](./demo.html)
 - [utopia.fyi](https://utopia.fyi/)
 - [CSS tips for responsive web design](https://www.youtube.com/watch?v=2IV08sP9m3U)
+- [Useful & Responsive Layouts, no Media Queries required](https://www.youtube.com/watch?v=p3_xN2Zp1TY)

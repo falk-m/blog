@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  php:
+    hostname: localhost
+    image: oberd/php-8.2-apache:1709995466
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/:/var/www/html/
+
+  mysql:
+    image: mysql:8.0.32
+    restart: unless-stopped
+    tty: true
+    environment: 
+      MYSQL_DATABASE : db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: dp_password
+      MYSQL_ROOT_PASSWORD: secret
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1-apache
+    restart: unless-stopped
+    ports:
+      - 81:80
+    environment: 
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: secret
+      UPLOAD_LIMIT: 1000M
+      MAX_EXECUTION_TIME: 3600

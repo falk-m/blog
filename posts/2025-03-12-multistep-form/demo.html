@@ -60,7 +60,7 @@
 
       <div data-form-step>
         <h2>almost finished</h2>
-        <input type="checkbox" id="cb-dataprod" name="dataprod" />
+        <input type="checkbox" id="cb-dataprod" name="dataprod" required />
         <label for="cb-dataprod">Agree the privacy text</label>
         <button type="submit">submit</button>
       </div>
@@ -115,6 +115,8 @@
           };
 
           const changeStepFocus = (stepIdx) => {
+            console.debug(`form: focus in step ${stepIdx}`);
+
             const focusElement = steps[stepIdx].querySelector(
               "input,textarea,button"
             );
@@ -126,6 +128,8 @@
           };
 
           const isStepValid = (stepIdx) => {
+            console.debug(`form: valivate step ${stepIdx}`);
+
             const activeElement = steps[stepIdx];
 
             const elementsToValidate =
@@ -193,14 +197,13 @@
           });
 
           $form.addEventListener("submit", (evt) => {
+            console.debug('submit form event');
             const activeStep = $form.activeStep || 0;
-            console.log(activeStep);
+            
             if (!isStepValid(activeStep)) {
               evt.preventDefault();
               return false;
             }
-
-            console.log(isStepValid(activeStep), activeStep);
 
             if (activeStep < steps.length - 1) {
               evt.preventDefault();
@@ -212,6 +215,7 @@
           });
 
           $form.displayStep(0);
+          $form.setAttribute('novalidate', true);
           return $form;
         };
 

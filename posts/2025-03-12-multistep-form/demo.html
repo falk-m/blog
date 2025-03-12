@@ -1,0 +1,229 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>multistep form</title>
+
+    <style>
+      label {
+        font-weight: bold;
+      }
+
+      textarea,
+      input[type="text"],
+      input[type="email"],
+      button {
+        width: 100%;
+        margin-bottom: 0.8rem;
+      }
+
+      form {
+        display: block;
+        margin-inline: auto;
+        width: min(90rem, 100% - 8vw);
+      }
+    </style>
+  </head>
+  <body>
+
+    Progress <span id="lbl-active-step">1</span>/4
+
+    <form method="get" id="form">
+      <div data-form-step>
+        <h2>request form</h2>
+        <label for="txt-questions">Questions?</label>
+        <textarea id="txt-questions" name="question" required></textarea>
+      </div>
+
+      <div data-form-step>
+        <h2>personal data</h2>
+
+        <label for="inp-name">Name*</label>
+        <input type="text" id="inp-name" name="name" required />
+
+        <label for="inp-email">E-Mail</label>
+        <input type="email" id="inp-email" name="email" />
+      </div>
+
+      <div data-form-step>
+        <h2>Some selection:</h2>
+
+        <input type="radio" name="selection" value="1" id="r-selection-1" />
+        <label for="r-selection-1">1</label>
+        <input type="radio" name="selection" value="2" id="r-selection-2" />
+        <label for="r-selection-2">2</label>
+        <input type="radio" name="selection" value="3" id="r-selection-3" />
+        <label for="r-selection-3">3</label>
+        <input type="radio" name="selection" value="4" id="r-selection-4" />
+        <label for="r-selection-4">4</label>
+      </div>
+
+      <div data-form-step>
+        <h2>almost finished</h2>
+        <input type="checkbox" id="cb-dataprod" name="dataprod" />
+        <label for="cb-dataprod">Agree the privacy text</label>
+        <button type="submit">submit</button>
+      </div>
+
+      <button style="display: none" data-form-button="next" type="button">
+        next
+      </button>
+
+      <button style="display: none" data-form-button="prev" type="button">
+        prev
+      </button>
+     
+    </form>
+
+    <script type="text/javascript">
+      (() => {
+        const multiStepForm = function (formSelector, formStepSelector) {
+          formStepSelector = formStepSelector || "[data-form-step]";
+
+          const $form = document.querySelector(formSelector);
+
+          if (!$form || $form.tagName.toLowerCase() != "form") {
+            throw new Error(`form ${formSelector} not found`);
+          }
+
+          const steps = $form.querySelectorAll(formStepSelector);
+          const btnPrev = $form.querySelector('[data-form-button="prev"]');
+          const btnNext = $form.querySelector('[data-form-button="next"]');
+
+          if (!btnPrev) {
+            console.warn('no element with [data-form-button="prev"] found');
+          }
+
+          if (!btnNext) {
+            throw new Error('no element with [data-form-button="next"] found');
+          }
+
+          if (steps.length == 0) {
+            throw new Error(
+              `form step elements with selector ${formStepSelector} not found`
+            );
+          }
+
+          const changeStepVisibility = (stepIdx) => {
+            steps.forEach((container, containerIdx) => {
+              if (stepIdx != containerIdx) {
+                container.style.display = "none";
+                return;
+              }
+              container.style.display = "block";
+            });
+          };
+
+          const changeStepFocus = (stepIdx) => {
+            const focusElement = steps[stepIdx].querySelector(
+              "input,textarea,button"
+            );
+            if (focusElement) {
+              setTimeout(() => {
+                focusElement.focus();
+              }, 100);
+            }
+          };
+
+          const isStepValid = (stepIdx) => {
+            const activeElement = steps[stepIdx];
+
+            const elementsToValidate =
+              activeElement.querySelectorAll("input, textarea");
+            let hasError = false;
+
+            elementsToValidate.forEach((element) => {
+              if (!element.checkValidity()) {
+                if (element.reportValidity) {
+                  element.reportValidity();
+                }
+                hasError = true;
+              }
+            });
+
+            if (hasError) {
+              return false;
+            }
+
+            return true;
+          };
+
+          const changeNavivationVisibility = (stepIdx) => {
+            if (stepIdx == 0 && btnPrev) {
+              btnPrev.style.display = "none";
+            }
+            if (stepIdx > 0 && btnPrev) {
+              btnPrev.style.display = "block";
+            }
+
+            if (stepIdx - 1 == steps.length) {
+              btnNext.style.display = "none";
+            } else {
+              btnNext.style.display = "block";
+            }
+          };
+
+          $form.displayStep = function (stepIdx) {
+            $form.activeStep = stepIdx;
+            if (stepIdx < 0 || stepIdx >= steps.length) {
+              throw new Error(`form step ${stepIdx} not exists`);
+            }
+
+            changeStepVisibility(stepIdx);
+            changeStepFocus(stepIdx);
+            changeNavivationVisibility(stepIdx);
+
+            const event = new CustomEvent("changeStep", {detail: { step: stepIdx + 1 }});
+            $form.dispatchEvent(event);
+          };
+
+          if (btnPrev) {
+            btnPrev.addEventListener("click", () => {
+              const activeStep = $form.activeStep || 0;
+              $form.displayStep(activeStep - 1);
+            });
+          }
+
+          btnNext.addEventListener("click", () => {
+            const activeStep = $form.activeStep || 0;
+            if (!isStepValid(activeStep)) {
+              return;
+            }
+            $form.displayStep(activeStep + 1);
+          });
+
+          $form.addEventListener("submit", (evt) => {
+            const activeStep = $form.activeStep || 0;
+            console.log(activeStep);
+            if (!isStepValid(activeStep)) {
+              evt.preventDefault();
+              return false;
+            }
+
+            console.log(isStepValid(activeStep), activeStep);
+
+            if (activeStep < steps.length - 1) {
+              evt.preventDefault();
+              $form.displayStep(activeStep + 1);
+              return false;
+            }
+
+            return true;
+          });
+
+          $form.displayStep(0);
+          return $form;
+        };
+
+        const $form = multiStepForm("#form", "[data-form-step]");
+        $form.addEventListener('changeStep', (evt) => {
+
+          const step = evt.detail.step;
+
+          document.querySelector('#lbl-active-step').innerText = step;
+        })
+
+      })();
+    </script>
+  </body>
+</html>

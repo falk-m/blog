@@ -1,0 +1,8 @@
+- [ecosia.org](https://www.ecosia.org/): AI Chat on ecosia
+- [tauri](https://v2.tauri.app/): build cross-platform apps, mobile and desktop
+- [tntsearch](https://github.com/teamtnt/tntsearch): php full text search engine
+- [gpt4all](https://github.com/nomic-ai/gpt4all): runs large language models (LLMs) privately on desktops
+- [easydiffusion](https://github.com/easydiffusion/easydiffusion): easiest way to install and use Stable Diffusion on your computer
+- [vosk-browser](https://github.com/ccoreilly/vosk-browser?tab=readme-ov-file): wasm, speach to text
+- [webawesome](https://backers.webawesome.com/): new components library based on custom elements
+- [fusejs](https://www.fusejs.io/): Powerful, lightweight fuzzy-search library, with zero dependencies.

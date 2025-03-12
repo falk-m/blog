@@ -15,7 +15,7 @@ For testing I like to use a local 'remote' repository
 - create a directory 'remote-repo'
 - navigate on the command line in this directory
 - initialize the repository ```git init```
-- create a master branch ```git checkout -b master``''
+- create a master branch ```git checkout -b master```
 - to use it as 'remote' repo, open the file '.git/config' and append the follow lines
   ```
   [receive]

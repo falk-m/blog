@@ -133,3 +133,17 @@ hr {
     border: 1px solid;
   }
 } 
+
+.c-detail-content pre {
+  margin-bottom: 0.8rem;
+}
+
+.c-detail-content p > code {
+  background-color: #F3F3F3;
+  display: inline-block;
+    padding-inline: 0.3rem;
+    margin-inline: 0rem;
+    
+    padding-block: 0.2rem;
+    margin-block: -0.3rem;
+}

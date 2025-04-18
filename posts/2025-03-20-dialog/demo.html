@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dialog demo</title>
+  </head>
+  <body>
+    <dialog id="dialog-standard">
+      Standard Dialog Content
+      <button type="button" action-close-dialog="#dialog-standard">
+        Close
+      </button>
+    </dialog>
+    <button action-open-as-modal="#dialog-standard">Open Standard as Modal (`.showModal()`)</button>
+    <button action-dialog-show="#dialog-standard">Show Dialog (`.show()`)</button>
+
+    <dialog id="dialog-standard-backdrop" action-close-on-click>
+      <div>
+        Standard Dialog Content. Close on click on backdrop. (The content ot the
+        dialog have to wrapped in a container element) For accessebility provide
+        always a closing button too.
+      </div>
+    </dialog>
+    <button action-open-as-modal="#dialog-standard-backdrop">
+      Open Standard Dialog (close on backdrop click)
+    </button>
+
+    <dialog id="dialog-slide-in" class="dialog-slide-in" action-close-on-click>
+      Slide-in Dialog Content
+      <button type="button" action-close-dialog="#dialog-slide-in">
+        Close
+      </button>
+    </dialog>
+    <button action-open-as-modal="#dialog-slide-in">Open Slide-In Dialog</button>
+    
+
+    <script>
+      document.querySelectorAll("button[action-open-as-modal]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const selector = btn.getAttribute("action-open-as-modal");
+          const dialog = document.querySelector(selector);
+          dialog.showModal();
+        });
+      });
+
+      document.querySelectorAll("button[action-dialog-show]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const selector = btn.getAttribute("action-dialog-show");
+          const dialog = document.querySelector(selector);
+          dialog.show();
+        });
+      });
+
+      document
+        .querySelectorAll("button[action-close-dialog]")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const selector = btn.getAttribute("action-close-dialog");
+            const dialog = document.querySelector(selector);
+            dialog.close();
+          });
+        });
+
+      document
+        .querySelectorAll("dialog[action-close-on-click]")
+        .forEach((dialog) => {
+          dialog.addEventListener("click", (event) => {
+            if (event.target.tagName.toLowerCase() === "dialog") {
+              event.target.close();
+            }
+          });
+        });
+    </script>
+
+    <style>
+      dialog:open::backdrop {
+        background-color: rgb(0 0 0 / 25%);
+      }
+
+      .dialog-slide-in {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: min(60rem, 100% - 1rem);
+        height: 100vh;
+        height: 100dvh;
+        top: 0;
+        right: 0;
+        left: auto;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        max-height: none;
+        max-width: none;
+        overflow: auto;
+
+        --duration: 1s;
+        transition: 
+            transform var(--duration) ease-in-out,
+            display   var(--duration) ease-in-out allow-discrete;
+      }
+
+      .dialog-slide-in:not([open]) {
+        transform: translateX(100%);
+      }
+
+      .dialog-slide-in[open] {
+        transform: translateX(0%); 
+
+        @starting-style {
+            transform: translateX(100%);
+        }
+      }
+    </style>
+  </body>
+</html>

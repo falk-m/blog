@@ -1,0 +1,19 @@
+{
+  "name": "example/plugin",
+  "description": "",
+  "license": "COMMERCIAL",
+  "type": "kirby-plugin",
+  "version": "0.0.1",
+  "minimum-stability": "beta",
+  "authors": [
+  {
+    "name": "scheinundsein.de"
+  }],
+  "autoload":
+  {
+    "psr-4":
+    {
+      "exmaple\\plugin\\": "lib/"
+    }
+  }
+}

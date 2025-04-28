@@ -1,0 +1,15 @@
+label: Text
+type: writer
+marks:
+  - bold
+  - italic
+  - '|'
+  - sup
+  - sub
+  - '|'
+  - link
+  - email
+nodes:
+  - heading
+  - bulletList
+  - orderedList

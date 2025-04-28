@@ -1,0 +1,10 @@
+type: toggles
+label: Ausrichtung
+default: left
+options:
+  - value: left
+    text: links
+    icon: text-left
+  - value: centered
+    text: zentriert
+    icon: text-center

@@ -1,0 +1,26 @@
+title: Blog Post
+
+tabs:
+  main:
+    label: Content
+    icon: dashboard
+    fields:
+      text:
+        type: blocks
+        fieldsets:
+          - headline
+          - text
+          - image
+      files:
+        type: files
+  meta:
+    label: Meta
+    icon: dashboard
+    fields:
+      date:
+        type: date
+        display: dd.mm.YYYY
+        default: today
+      tags:
+        label: Tags
+        type: tags

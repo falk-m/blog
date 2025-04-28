@@ -1,0 +1,12 @@
+name: Headline
+icon: h1
+preview: text
+fields:
+  text:
+    extends: fields/text
+    label: Headline
+
+  subheadline:
+    extends: fields/text
+    label: Subheadline
+    help: optional

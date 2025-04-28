@@ -1,0 +1,11 @@
+{
+    "name": "example-plugin",
+    "version": "0.0.1",
+    "description": "",
+    "author": "scheinundsein.de",
+    "license": "COMMERCIAL",
+    "scripts": {
+        "dev": "npx -y kirbyup src/index.js --watch",
+        "build": "npx -y kirbyup src/index.js"
+    }
+}

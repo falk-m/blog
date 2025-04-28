@@ -1,0 +1,24 @@
+name: Bild
+icon: image
+preview: false
+fields:
+  image:
+    label: Bild
+    type: files
+    query: model.images
+    multiple: false
+
+  imagelink:
+    label: Verlinkung
+    type: object
+    help: optional
+    fields:
+      link:
+        type: link
+        options:
+          - page
+          - url
+          - file
+      target:
+        type: toggle
+        text: in neuem Fenster öffnen?

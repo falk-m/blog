@@ -1,0 +1,20 @@
+title: Blog
+
+sections:
+  pages:
+    type: pages
+    label: blog posts
+    sortBy: datum desc
+    template: post
+    search: true
+    limit: 100
+    layout: table
+    image: false
+    columns:
+      title:
+        label: Titel
+      tags:
+        label: Kategorie
+      date:
+        label: Datum
+        display: DD.MM.YYYY

@@ -1,0 +1,29 @@
+title: Website
+
+tabs:
+  pages:
+    label: Seiten
+    icon: page
+    sections:
+      pages:
+        type: pages
+        headline: Seiten
+  settings:
+    label: Einstellungen
+    icon: cog
+    sections:
+      fields:
+        type: fields
+        fields:
+          hlcontact:
+            label: Kontakt
+            type: headline
+          phone:
+            label: Telefonnummer
+            type: link
+          address:
+            label: Adresse
+            type: text
+          other:
+            label: Test field
+            type: example-field

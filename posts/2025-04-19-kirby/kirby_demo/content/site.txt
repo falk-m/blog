@@ -10,4 +10,11 @@ Address: test street 1
 
 ----
 
+Footernav:
+
+- page://ii1eGnMWMr1GzZIb
+- page://Fo4BjjAUR1nCZToa
+
+----
+
 Other: Hello blub

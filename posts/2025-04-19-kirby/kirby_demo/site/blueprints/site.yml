@@ -1,13 +1,18 @@
 title: Website
 
 tabs:
-  pages:
+  Dashboard:
     label: Seiten
     icon: page
-    sections:
-      pages:
-        type: pages
-        headline: Seiten
+    columns:
+      - width: 2/3
+        sections:
+          pages:
+            type: pages
+            headline: Seiten
+      - width: 1/3
+        sections:
+          dates: sections/dates
   settings:
     label: Einstellungen
     icon: cog
@@ -24,6 +29,9 @@ tabs:
           address:
             label: Adresse
             type: text
+          footernav:
+            label: Navigation
+            type: pages
           other:
             label: Test field
             type: example-field

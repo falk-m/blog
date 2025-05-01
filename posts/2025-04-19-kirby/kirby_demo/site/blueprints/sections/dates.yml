@@ -1,0 +1,10 @@
+type: pages
+headline: Termine
+parent: kirby.page("dates")
+info: "{{ page.published }}"
+template: date
+empty: Keine Termine vorhanden
+sortBy: date_from desc 
+limit: 20
+layout: list
+text: " {{ page.date_from.toDate('d.m.Y') }}: {{ page.title  }}"

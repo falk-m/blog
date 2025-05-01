@@ -1,0 +1,25 @@
+# Each page blueprint must have a title, the title may be different from the file name
+title: Termin
+icon: 📖
+num: date_from
+
+status:
+  draft:
+    label: Entwurf
+    text: Nur sichtbar für eingeloggte Nutzer
+  listed:
+    label: Veröffentlicht
+    text: für alle einsehbar
+sections:
+  meta:
+    type: fields
+    fields:
+      place:
+        label: Ort
+        type: text
+      date_from:
+        label: Datum
+        type: date
+        time: false
+        default: now
+        display: DD.MM.YYYY

@@ -55,7 +55,7 @@ class PostsCollection
             }
 
             if (!empty($search)) {
-                if (!str_contains($markdownContent, $search)) {
+                if (!str_contains(strtolower($markdownContent), strtolower($search))) {
                     continue;
                 }
             }

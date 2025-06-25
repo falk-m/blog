@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    	<link rel="stylesheet" href="assets/codicons/codicon.css" />
+		<link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css" />
+		<link rel="stylesheet" href="assets/icofont/icofont.min.css" />
+		<link rel="stylesheet" href="assets/kreon/style.css" />
+		<link rel="stylesheet" href="assets/noto-sans/noto-sans.css" />
+		<link rel="stylesheet" href="assets/material-icons/iconfont/material-icons.css" />
+		<link rel="stylesheet" href="assets/material-symbols/index.css" />
+		<link rel="stylesheet" href="assets/roboto/roboto.css" />
+		<link rel="stylesheet" href="assets/tabler-icons/tabler-icons.css" />
+    <script src="/dist/app.js"></script>
+  </head>
+  <body class="itzbund" data-theme="itzbund">
+		<div class="itzbund container mx-auto my-10 max-w-800px">
+			<header class="text-center">
+				<div class="grid grid-cols-2 items-center">
+					<div>
+						<kol-kolibri class="block m-auto w-40" _labeled="false"></kol-kolibri>
+					</div>
+					<div>
+						
+					</div>
+				</div>
+				<kol-heading _label="Willkommen bei KoliBri"></kol-heading>
+			</header>
+			<main class="grid md:grid-cols-2 gap-6 p-12">
+				<kol-alert _type="success" _label="Dokumentation" _variant="card" _level="2">
+					<kol-link _href="https://public-ui.github.io/" _icons="fa-sharp fa-solid fa-book" _label="Dokumentation öffnen" _target="_blank"></kol-link>
+				</kol-alert>
+				<kol-alert _type="info" _label="Theming" _variant="card" _level="2">
+					<kol-link
+						_href="https://public-ui.github.io/docs/concepts/styling/designer"
+						_icons="fa-solid fa-palette"
+						_label="KoliBri-Designer öffnen"
+						_target="_blank"
+					></kol-link>
+				</kol-alert>
+				<kol-alert _type="warning" _label="Mitwirken" _variant="card" _level="2">
+					<kol-link _href="https://github.com/public-ui/kolibri/" _icons="fa-brands fa-github" _label="GitHub öffnen" _target="_blank"></kol-link>
+				</kol-alert>
+				<kol-alert _type="error" _label="Kontakt" _variant="card" _level="2">
+					<kol-link _href="mailto:kolibri@itzbund.de" _icons="fa-solid fa-envelope" _label="E-Mail schreiben" _target="_blank"></kol-link>
+				</kol-alert>
+
+        <kol-select _options="[{'label':'Herr','value':0},{'label':'Frau','value':1},{'label':'Firma','value':2}]" _multiple="true" _value="[1]"> Auswahlfeld </kol-select>
+
+
+  		</main>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>KoliBri Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div>
+			<header class="text-center">
+				<div class="grid grid-cols-2 items-center">
+					<div>
+						<kol-kolibri class="block m-auto w-40" _labeled="false"></kol-kolibri>
+					</div>
+					<div>
+						
+					</div>
+				</div>
+				<kol-heading _label="Willkommen bei KoliBri"></kol-heading>
+			</header>
+			<main class="grid md:grid-cols-2 gap-6 p-12">
+				<kol-alert _type="success" _label="Dokumentation" _variant="card" _level="2">
+					<kol-link _href="https://public-ui.github.io/" _icons="fa-sharp fa-solid fa-book" _label="Dokumentation öffnen" _target="_blank"></kol-link>
+				</kol-alert>
+				<kol-alert _type="info" _label="Theming" _variant="card" _level="2">
+					<kol-link
+						_href="https://public-ui.github.io/docs/concepts/styling/designer"
+						_icons="fa-solid fa-palette"
+						_label="KoliBri-Designer öffnen"
+						_target="_blank"
+					></kol-link>
+				</kol-alert>
+				<kol-alert _type="warning" _label="Mitwirken" _variant="card" _level="2">
+					<kol-link _href="https://github.com/public-ui/kolibri/" _icons="fa-brands fa-github" _label="GitHub öffnen" _target="_blank"></kol-link>
+				</kol-alert>
+				<kol-alert _type="error" _label="Kontakt" _variant="card" _level="2">
+					<kol-link _href="mailto:kolibri@itzbund.de" _icons="fa-solid fa-envelope" _label="E-Mail schreiben" _target="_blank"></kol-link>
+				</kol-alert>
+
+        <kol-select _options="[{'label':'Herr','value':0},{'label':'Frau','value':1},{'label':'Firma','value':2}]" _multiple="true" _value="[1]"> Auswahlfeld </kol-select>
+
+
+
+        <script type="module">
+            import { register } from 'https://unpkg.com/@public-ui/components/dist/esm/index.js';
+            import { defineCustomElements } from 'https://unpkg.com/@public-ui/components/dist/loader/index.js';
+            import { DEFAULT } from 'https://unpkg.com/@public-ui/theme-default/dist/index.mjs';
+            register(DEFAULT, defineCustomElements).catch(console.warn);
+        </script>
+    </body>
+</html>

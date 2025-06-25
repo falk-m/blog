@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "http-server -p 8080",
+    "watch": "node ./esbuild.config.mjs --watch",
+    "build": "node ./esbuild.config.mjs"
+  },
+  "dependencies": {
+    "@public-ui/components": "^3.0.0",
+    "@public-ui/themes": "^3.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.5",
+    "http-server": "^14.1.1"
+  }
+}

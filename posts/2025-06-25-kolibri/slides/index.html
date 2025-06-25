@@ -1,0 +1,154 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Presentation</title>
+
+    <meta name="author" content="falk-m.de" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./revealjs/dist/revealjs.css" />
+    <link rel="stylesheet" href="./revealjs/dist/theme-black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="assets/hljs-theme.css" />
+    <link rel="stylesheet" href="assets/custom-theme-overrides.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="bg-title">
+          <h1>Public ui</h1>
+          <span>Komponenten</span>
+        </section>
+
+         <section>
+
+          "KoliBri ist für die Barrierefreiheit, wie ein Thermomix® für das Kochen"
+
+        </section>
+
+        <section>
+
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+          &lt;kol-input-checkbox _variant=&quot;switch&quot; 
+              _label=&quot;Geburtsdatum anzeigen?&quot;&gt;&lt;/kol-input-checkbox&gt;
+          </code></pre>
+
+          <img src="images/slide-off.png" />
+          <img src="images/slide-off-focus.png" />
+          <img src="images/slide-on.png" />
+          <img src="images/slide-source.png" />
+        </section>
+ 
+         <section class="bg2">
+          
+          <ul>
+            <li>Web Components (Shadow-Root)</li>
+            <li>Bridges: Angular, React, Preact, Vue, Vaadin und Solid</li>
+            <li>KoliBri (Komponentenbibliothek für die Barrierefreiheit)</li>
+            <li>https://public-ui.github.io/</li>
+            <li>Open Source - EUROPEAN UNION PUBLIC LICENCE</li>
+            <li>Maintainer: itzbund <sub>Informationstechnikzentrum Bund, deutsche Bundesbehörde, die für die Bereitstellung von IT-Dienstleistungen für die Bundesverwaltung zuständig ist</sub></li>
+          </ul>
+        </section>
+
+       
+
+        
+
+        <section class="bg2">
+
+          <ul>
+            <li>focus (style and steuerung)</li>
+            <li>Kontraste</li>
+            <li>Skalierbarkeit</li>
+            <li>semantic HTML structure, meaningful elements</li>
+          </ul>
+         </section>
+
+         <section>
+          <h2>Einbindung</h2>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+          import { register } from '@public-ui/components';
+          import { defineCustomElements } from '@public-ui/components/dist/loader';
+          import { DEFAULT } from '@public-ui/themes';
+          register(DEFAULT, defineCustomElements).catch(console.warn);
+          </code></pre>
+         
+          styles sind in js (unabhänning von äußeren css), Icon-Sets müssen seperat eingebunden werden
+
+         </section>
+
+         <section>
+          <pre data-id="code-animation"><code class="hljs js" data-trim>
+                    &lt;head&gt;
+                        &lt;meta charset=&quot;utf-8&quot; /&gt;
+                        &lt;title&gt;KoliBri Demo&lt;/title&gt;
+                        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;script type=&quot;module&quot;&gt;
+                            import { register } from &#39;https://unpkg.com/@public-ui/components/dist/esm/index.js&#39;;
+                            import { defineCustomElements } from &#39;https://unpkg.com/@public-ui/components/dist/loader/index.js&#39;;
+                            import { DEFAULT } from &#39;https://unpkg.com/@public-ui/theme-default/dist/index.mjs&#39;;
+                            register(DEFAULT, defineCustomElements).catch(console.warn);
+                        &lt;/script&gt;
+                    &lt;/body&gt;
+          </code></pre>
+
+         </section>
+
+          <section class="bg2">
+
+          <h3>Beispiele</h3>
+          <a href="https://develop--kolibri-public-ui.netlify.app/" target="_blank">https://develop--kolibri-public-ui.netlify.app/</a>
+          
+
+         </section>
+
+         <section>
+
+          <h3>Designer</h3>
+
+          <a href="https://public-ui.github.io/v2/designer/" target="_blank">https://public-ui.github.io/v2/designer/</a>
+
+         </section>
+
+        <section class="bg-title">
+          <h1>Thanks</h1>
+          <a href="?print-pdf">print view</a>
+        </section>
+      </div>
+    </div>
+
+    <script src="./revealjs/dist/revealjs.js"></script>
+
+    <script type="module">
+      Reveal.configure({ pdfMaxPagesPerSlide: 1 });
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: "slide",
+        backgroundTransition: "slide",
+        mouseWheel: true,
+        //slideNumber: 'c/t',
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+
+    </script>
+  </body>
+</html>

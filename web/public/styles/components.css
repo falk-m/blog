@@ -147,3 +147,11 @@ hr {
     padding-block: 0.2rem;
     margin-block: -0.3rem;
 }
+
+.c-detail-content dd {
+  margin-inline-start: 40px;
+}
+
+.c-detail-content u {
+  text-decoration: #f00 wavy underline;
+}

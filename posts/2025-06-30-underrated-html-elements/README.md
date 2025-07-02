@@ -73,7 +73,19 @@ Represents a time (24-houre clock), a date (gregorian calendar, optional with ti
 ```html
 <ul>
     <li>
-        <mark>This text</mark> is marked.
+        <mark>This text</mark> is marked. It is highlighted to marke the relevance in the enclosing context.
+    </li>
+    <li>
+        "the cite tag is used to mark up the title of a creative work" source <cite>mozilla.org</cite>
+    </li>
+    <li>
+       <em>em</em> emphasis compared to surrounding text
+    </li>
+    <li>
+        You could use the u-element to highlight <u>speling</u> mistakes<u></u>
+    </li>
+    <li>
+        <del>This Text</del> is removev and <ins>this text</ins> is new.
     </li>
 </ul>
 ```

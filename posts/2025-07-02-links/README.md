@@ -1,3 +1,10 @@
+---
+title: 'Links and stuff of the week'
+taxonomy:
+    tag:
+        - Other
+date: '2025-07-02'
+---
 
 - https://huggingface.co/spaces/stepfun-ai/Step1X-Edit
 - https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On

@@ -15,11 +15,13 @@
 - [mui](https://mui.com/): open-source React component library 
 - [mantine](https://mantine.dev/): React component library 
 - [9ui](https://www.9ui.dev/): Base UI and Tailwind CSS based omponent library 
+- [odyc.dev](https://odyc.dev/): A small javascript library that lets you code video games even without programming experience.
+- [glowui.com/icons](https://www.glowui.com/icons): 442 open source icons in 2 styles, made for interfaces
+- [fontgenerator.cool](https://fontgenerator.cool/): Make your text fun and stylish with our cool text generator, with Icons, ascii, unicode, ...
 
 ## Captchas 
 
 - [captchas-are-over](https://behind.pretix.eu/2025/05/23/captchas-are-over/): CAPTCHAs are over (in ticketing)
-
 - [friendly-challenge](https://github.com/FriendlyCaptcha/friendly-challenge): The widget and docs for the proof of work challenge used in Friendly Captcha.
 - [anubis](https://github.com/TecharoHQ/anubis): Weighs the soul of incoming HTTP requests to stop AI crawlers
 - [capjs.js](https://capjs.js.org/): A modern, lightning-quick PoW captcha

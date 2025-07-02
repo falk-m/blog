@@ -25,16 +25,6 @@ date: '2025-07-02'
 - [odyc.dev](https://odyc.dev/): A small javascript library that lets you code video games even without programming experience.
 - [glowui.com/icons](https://www.glowui.com/icons): 442 open source icons in 2 styles, made for interfaces
 - [fontgenerator.cool](https://fontgenerator.cool/): Make your text fun and stylish with our cool text generator, with Icons, ascii, unicode, ...
-
-## Captchas 
-
-- [captchas-are-over](https://behind.pretix.eu/2025/05/23/captchas-are-over/): CAPTCHAs are over (in ticketing)
-- [friendly-challenge](https://github.com/FriendlyCaptcha/friendly-challenge): The widget and docs for the proof of work challenge used in Friendly Captcha.
-- [anubis](https://github.com/TecharoHQ/anubis): Weighs the soul of incoming HTTP requests to stop AI crawlers
-- [capjs.js](https://capjs.js.org/): A modern, lightning-quick PoW captcha
-- [p-captcha](https://p-captcha.com/): Proof-of-work CAPTCHA for bot protection
-- [altcha](https://altcha.org/): Next-Gen Captcha and Spam Protection
-- [pow-bot-deterrent](https://github.com/sequentialread/pow-bot-deterrent): A proof-of-work based bot deterrent.
   
 ## other
 

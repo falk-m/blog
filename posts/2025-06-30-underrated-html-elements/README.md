@@ -90,6 +90,28 @@ Represents a time (24-houre clock), a date (gregorian calendar, optional with ti
 </ul>
 ```
 
+## Small element
+
+Represents side-comments and small print, like copyright and legal text.
+
+<small>This text</small> is small.
+
+```html
+<small>This text</small> is small.
+```
+
+## Sub and sup
+
+These elements should only be used for typographical reasons.
+They lowered or raised the baseline of the text using smaller text.
+
+<sub>This text</sub> is in a sub element and <sup>this text</sup> in a sup element.
+
+```html
+<sub>This text</sub> is in a sub element and <sup>this text</sup> in a sup element.
+```
+
+
 ## links
 
 - [dl element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dl)
@@ -99,3 +121,4 @@ Represents a time (24-houre clock), a date (gregorian calendar, optional with ti
 - [del and ins element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/del)
 - [cite element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/cite)
 - [em element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/em)
+- [small element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/small)

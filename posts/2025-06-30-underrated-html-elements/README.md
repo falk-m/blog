@@ -122,3 +122,17 @@ They lowered or raised the baseline of the text using smaller text.
 - [cite element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/cite)
 - [em element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/em)
 - [small element on mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/small)
+
+## some other elements I never used
+
+
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/data
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/kbd
+- https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/abbr
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/wbr
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/output
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meter
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/search
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dfn
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/samp

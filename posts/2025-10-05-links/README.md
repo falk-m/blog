@@ -26,4 +26,4 @@ Reclaim Your Data
 ## Markdown/WYSIWYG Editors
 
 - [milkdown](https://milkdown.dev/): A plugin driven framework to build WYSIWYG Markdown editor.
-- [overtype](- https://github.com/panphora/overtype#readme): A lightweight markdown editor library with perfect WYSIWYG alignment using an invisible textarea overlay technique.
+- [overtype](https://github.com/panphora/overtype#readme): A lightweight markdown editor library with perfect WYSIWYG alignment using an invisible textarea overlay technique.

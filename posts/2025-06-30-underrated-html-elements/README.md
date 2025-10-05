@@ -136,3 +136,6 @@ They lowered or raised the baseline of the text using smaller text.
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/search
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dfn
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/samp
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/pre
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/var
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figcaption

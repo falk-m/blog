@@ -132,3 +132,4 @@ A great example from Kevin Powell for a simple grid:
 - [utopia.fyi](https://utopia.fyi/)
 - [CSS tips for responsive web design](https://www.youtube.com/watch?v=2IV08sP9m3U)
 - [Useful & Responsive Layouts, no Media Queries required](https://www.youtube.com/watch?v=p3_xN2Zp1TY)
+- [responsive-design](https://ishadeed.com/article/responsive-design/#fluid-sizing)
